@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ThemeOverlay.AppCompat.ActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.CadastroVisitanteActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_salvar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_image"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_weight="0"
+            android:background="@color/primary"
+            android:backgroundTint="@color/primary"
+            android:text="Salvar"
+            android:textColor="@color/white"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Realize o cadastro"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_nome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/et_rg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="RG"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/et_nome"
+            app:layout_constraintStart_toStartOf="@+id/et_nome"
+            app:layout_constraintTop_toBottomOf="@+id/et_nome" />
+
+        <EditText
+            android:id="@+id/et_cpf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="CPF"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/et_rg"
+            app:layout_constraintStart_toStartOf="@+id/et_rg"
+            app:layout_constraintTop_toBottomOf="@+id/et_rg" />
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/primary"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="@+id/tv_foto"
+            app:layout_constraintStart_toStartOf="@+id/tv_foto"
+            app:layout_constraintTop_toBottomOf="@+id/tv_foto"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+
+        <TextView
+            android:id="@+id/tv_foto"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:elegantTextHeight="true"
+            android:text="SELECIONAR FOTO"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/et_cpf"
+            app:layout_constraintStart_toStartOf="@+id/et_cpf"
+            app:layout_constraintTop_toBottomOf="@+id/et_cpf" />
+
+        <Button
+            android:id="@+id/iv_voltar"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/primary"
+            android:drawableStart="@drawable/ic_baseline_arrow_back_24"
+            android:drawableTint="#FFFFFF"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/action_home" />
+        <item
+            android:id="@+id/nav_aviso"
+            android:title="@string/action_aviso" />
+        <item
+            android:id="@+id/nav_agendamento"
+            android:title="@string/action_agendamento" />
+        <item
+            android:id="@+id/nav_conversas"
+            android:title="@string/action_conversas" />
+        <item
+            android:id="@+id/nav_assembleias"
+            android:title="@string/action_assembleias" />
+        <item
+            android:id="@+id/nav_mural_de_avisos"
+            android:title="@string/action_mural_de_avisos" />
+        <item
+            android:id="@+id/nav_cadastro_visitantes"
+            android:title="@string/action_cadastro_visitantes" />
+        <item
+            android:id="@+id/nav_votacao"
+            android:title="@string/action_votacao" />
+        <item
+            android:id="@+id/nav_pagamento_condominal"
+            android:title="@string/action_pagamento_condominal" />
+        <item
+            android:id="@+id/nav_sair"
+            android:title="@string/action_sair" />
+    </group>
+</menu>

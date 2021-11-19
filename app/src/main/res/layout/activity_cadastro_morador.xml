@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ui.CadastroMoradorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="52dp"
+            android:text="Realize seu cadastro"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/et_dados2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="30dp"
+            android:hint="Dados pessoais"
+            android:textColorHint="@android:color/background_dark"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_nome2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Nome"
+            android:textColorHint="@android:color/background_dark"
+            app:layout_constraintEnd_toEndOf="@+id/et_sobrenome2" />
+
+        <EditText
+            android:id="@+id/et_sobrenome2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Sobrenome"
+            android:inputType="textPersonName"
+            android:textColorHint="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/et_cpf2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="CPF"
+            android:inputType="number"
+            android:textColorHint="@android:color/background_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_sobrenome2" />
+
+        <EditText
+            android:id="@+id/et_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Data de Nascimento"
+            android:textColorHint="@android:color/background_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_cpf2" />
+
+        <EditText
+            android:id="@+id/et_email2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@android:color/background_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_data2" />
+
+        <EditText
+            android:id="@+id/et_senha2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:textColorHint="@android:color/background_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_email2" />
+
+        <TextView
+            android:id="@+id/text_view_condo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="30dp"
+            android:text="Selecione o seu condomínio"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_condo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="30dp"
+            android:entries="@array/condo"
+            android:textSize="24dp" />
+
+        <Spinner
+            android:id="@+id/spinner_bloco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="30dp"
+            android:entries="@array/bloco"
+            android:textSize="24dp" />
+
+        <Spinner
+            android:id="@+id/spinner_apto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="30dp"
+            android:entries="@array/Apartamento"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/button_finalizar"
+            android:layout_width="240dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_backgroud"
+            android:text="Finalizar cadastro"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#2AB53C" />
+
+
+        <TextView
+            android:id="@+id/et_conta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="Já possuo conta"
+            android:textColor="#2AB53C"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

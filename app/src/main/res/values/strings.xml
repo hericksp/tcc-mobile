@@ -1,0 +1,52 @@
+<resources>
+    <string name="select_image">Selecionar Imagem</string>
+    <string name="no_permission">Não tem permissão para ler arquivos.</string>
+
+    <string name="app_name">TowersAdmin</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_perfil">Conta</string>
+    <string name="action_home">Home</string>
+    <string name="action_aviso">Avisos</string>
+    <string name="action_agendamento">Agendamentos</string>
+    <string name="action_conversas">Converse com o seu sindico</string>
+    <string name="action_assembleias">Assembleias</string>
+    <string name="action_mural_de_avisos">Mural de avisos</string>
+    <string name="action_cadastro_visitantes">Cadastrar Visitantes</string>
+    <string name="action_votacao">Votações Online</string>
+    <string name="action_pagamento_condominal">Pagamento Condominal</string>
+    <string name="action_reclamacoes">Reclamações</string>
+    <string name="action_sair">Fazer Logout/Sair</string>
+
+
+
+    <string-array name="condo">
+        <item>Selecione seu Condomínio</item>
+        <item>Condomínio Santa Cecilia</item>
+        <item>Condomínio Belém</item>
+        <item>Condomínio Grande</item>
+    </string-array>
+
+    <string-array name="bloco">
+        <item>Selecione seu Bloco</item>
+        <item>Bloco 1</item>
+        <item>Bloco 2</item>
+        <item>Bloco 3</item>
+    </string-array>
+
+    <string-array name="Apartamento">
+        <item>Selecione o seu Apto</item>
+        <item>Apartamento 1</item>
+        <item>Apartamento 2</item>
+        <item>Apartamento 3</item>
+    </string-array>
+
+    <string-array name="Espaços">
+        <item>SELECIONE O ESPAÇO</item>
+        <item>Salão de Festas(lobby)</item>
+        <item>Salão de Festas(TORRE B)</item>
+        <item>Sala Cinema</item>
+        <item>Sala Jogos</item>
+        <item>Sala Jogos(Crianças)</item>
+    </string-array>
+
+</resources>
