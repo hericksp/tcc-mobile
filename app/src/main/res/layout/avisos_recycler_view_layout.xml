@@ -8,8 +8,9 @@
     tools:targetApi="ice_cream_sandwich">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_aviso"
         android:layout_width="match_parent"
-        android:layout_height="207dp"
+        android:layout_height="231dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
@@ -21,36 +22,68 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/primary"
             android:orientation="vertical"
             android:padding="16dp">
 
 
             <TextView
-                android:id="@+id/titulo_votacao"
+                android:id="@+id/titulo_aviso"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:background="@color/primary"
+                android:gravity="bottom"
                 android:text="Título Aviso"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/data_hora_aviso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/primary"
-                android:gravity="end"
+                android:gravity="start"
                 android:text="Data e hora"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/tv_votacao"
+                android:id="@+id/tv_editar_aviso"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:drawableTint="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="Editar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_main_aviso"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="75dp"
+                android:background="@color/white"
                 android:gravity="center"
-                android:text="Runião Hoje às 18hrs"
+                android:text="Reunião Hoje às 18hrs"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_status_aviso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="Status" />
+
+            <TextView
+                android:id="@+id/tv_link"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center|top"
+                android:text="Link"
+                android:textColor="?android:attr/textColorLink" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

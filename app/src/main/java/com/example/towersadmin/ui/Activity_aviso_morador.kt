@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class activity_aviso : AppCompatActivity() {
+class activity_aviso_morador : AppCompatActivity() {
 
     lateinit var rvAvisos : RecyclerView
     lateinit var avisosAdapter : AvisosAdapter
@@ -54,6 +54,8 @@ class activity_aviso : AppCompatActivity() {
         status = findViewById(R.id.tv_status_aviso)
         link = findViewById(R.id.tv_link)
 
+        btn_reload.isInvisible
+        btn_novo_aviso.isInvisible
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
 
@@ -77,7 +79,7 @@ class activity_aviso : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<List<Aviso>>, t: Throwable) {
-                    Toast.makeText(this@activity_aviso, "Algo deu errado!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@activity_aviso_morador, "Algo deu errado!", Toast.LENGTH_LONG).show()
                     Log.i("avisosList", t.message.toString())
 
                 }

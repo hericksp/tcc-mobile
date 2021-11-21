@@ -17,7 +17,9 @@
         android:theme="@style/Theme.TowersAdmin"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.AgendamentoEspaco"></activity>
+        <activity android:name=".ui.EditarAviso"></activity>
+        <activity android:name=".ui.NovoAviso" />
+        <activity android:name=".ui.AgendamentoEspaco" />
         <activity android:name=".ui.activity_votacao" />
         <activity android:name=".ui.activity_reclamacoes" />
         <activity android:name=".ui.activity_aviso" />

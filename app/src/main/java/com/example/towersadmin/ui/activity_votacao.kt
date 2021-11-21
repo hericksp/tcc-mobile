@@ -9,8 +9,6 @@ import com.example.towersadmin.R
 
 class activity_votacao : AppCompatActivity() {
 
-    lateinit var iv_voltar : Button
-    lateinit var rv_votacao : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,13 +16,12 @@ class activity_votacao : AppCompatActivity() {
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
 
-        fun abrirDashBoard() {
-            val intent = Intent(this, DashBoardActivity::class.java)
-            startActivity(intent)
-        }
-
         iv_voltar.setOnClickListener {
             abrirDashBoard()
         }
+    }
+    private fun abrirDashBoard() {
+        val intent = Intent(this, DashBoardActivity::class.java)
+        startActivity(intent)
     }
 }

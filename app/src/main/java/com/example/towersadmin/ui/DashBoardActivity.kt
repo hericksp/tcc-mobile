@@ -104,10 +104,10 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private fun abrirCaixaDialogo() {
 
         val caixaDeDialogo = AlertDialog.Builder(this)
+
         caixaDeDialogo.setTitle("Tem certeza que deseja sair?")
         caixaDeDialogo.setMessage("Você será redirecionado para a tela de início!")
         caixaDeDialogo.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
-
             logout()
             abrirMain()
         }

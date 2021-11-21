@@ -27,7 +27,7 @@
 
 
             <TextView
-                android:id="@+id/titulo_votacao"
+                android:id="@+id/titulo_aviso"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:background="@color/white"
@@ -37,7 +37,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/tv_votacao"
+                android:id="@+id/tv_main_aviso"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
