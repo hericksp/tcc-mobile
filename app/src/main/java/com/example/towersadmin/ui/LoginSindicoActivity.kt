@@ -54,7 +54,10 @@ class LoginSindicoActivity : AppCompatActivity() {
                             val loginResponse = response.body()
 
                             if (loginResponse?.sindicoId != null && check_lembrar.isChecked) {
-                                sessionManager.saveAuthToken(loginResponse.sindicoId, loginResponse.name,
+                                sessionManager.saveAuthToken(
+                                    loginResponse.sindicoId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
+                                    loginResponse.bloco.id, loginResponse.bloco.nome,
+                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = true
@@ -67,8 +70,10 @@ class LoginSindicoActivity : AppCompatActivity() {
                             }
                             else if(loginResponse?.sindicoId != null) {
                                 sessionManager.saveAuthToken(
-                                    loginResponse.sindicoId, loginResponse.name,
-                                    loginResponse.surname, loginResponse.cpf,
+                                    loginResponse.sindicoId,  loginResponse.apartamento.id, loginResponse.apartamento.numero,
+                                    loginResponse.bloco.id, loginResponse.bloco.nome,
+                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj,
+                                    loginResponse.name, loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = false
                                 )

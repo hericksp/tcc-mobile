@@ -13,7 +13,6 @@ import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 
 class LoginActivity : AppCompatActivity() {
@@ -56,10 +55,12 @@ class LoginActivity : AppCompatActivity() {
 
                             if (loginResponse?.moradorId != null && check_lembrar.isChecked) {
                                 sessionManager.saveAuthToken(
-                                        loginResponse.moradorId, loginResponse.name,
-                                        loginResponse.surname, loginResponse.cpf,
-                                        loginResponse.birth, loginResponse.email,
-                                        loginResponse.token, lembrar = true
+                                    loginResponse.moradorId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
+                                    loginResponse.bloco.id, loginResponse.bloco.nome,
+                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj,
+                                    loginResponse.name, loginResponse.surname, loginResponse.cpf,
+                                    loginResponse.birth, loginResponse.email,
+                                    loginResponse.token, lembrar = true
                                 )
 
                                 Log.i("response", loginResponse.toString())
@@ -67,7 +68,9 @@ class LoginActivity : AppCompatActivity() {
 
                             } else if(loginResponse?.moradorId != null) {
                                 sessionManager.saveAuthToken(
-                                    loginResponse.moradorId, loginResponse.name,
+                                    loginResponse.moradorId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
+                                    loginResponse.bloco.id, loginResponse.bloco.nome,
+                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = false

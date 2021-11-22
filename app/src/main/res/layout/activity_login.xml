@@ -92,23 +92,23 @@
             android:id="@+id/esqueceu_senha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="24dp"
             android:text="Problemas ao logar?"
             android:textColor="@color/secondary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_continuar" />
+            app:layout_constraintTop_toBottomOf="@+id/check_lembrar" />
 
         <CheckBox
             android:id="@+id/check_lembrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Lembrar"
-            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
-            app:layout_constraintEnd_toEndOf="@+id/et_senha"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mensagem_de_erro" />
+            android:layout_marginTop="24dp"
+            android:text="Manter conectado"
+            app:layout_constraintEnd_toEndOf="@+id/btn_continuar"
+            app:layout_constraintTop_toBottomOf="@+id/btn_continuar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -54,7 +54,7 @@ class activity_aviso_morador : AppCompatActivity() {
         status = findViewById(R.id.tv_status_aviso)
         link = findViewById(R.id.tv_link)
 
-        btn_reload.isInvisible
+        btn_reload.isClickable
         btn_novo_aviso.isInvisible
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)

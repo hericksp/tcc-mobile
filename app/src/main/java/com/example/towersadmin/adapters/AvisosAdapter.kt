@@ -35,11 +35,11 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
         val aviso = listaAvisos[position]
 
-        holder.titulo_aviso.text = aviso.titulo_aviso
-        holder.data_hora.text = aviso.data_hora
-        holder.aviso.text = aviso.aviso
-        holder.status.text = aviso.status_aviso
-        holder.link.text = aviso.link
+        holder.titulo_aviso?.text = aviso.titulo_aviso
+        holder.data_hora?.text = aviso.data_hora
+        holder.aviso?.text = aviso.aviso
+        holder.status?.text = aviso.status_aviso
+        holder.link?.text = aviso.link
     }
 
     override fun getItemCount(): Int {

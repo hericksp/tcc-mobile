@@ -84,7 +84,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 abrirVotacao()
             }
             R.id.nav_aviso -> {
-                abrirReclamacoes()
+                abrirMuralDeAvsiso()
             }
             R.id.nav_mural_de_avisos -> {
                 abrirMuralDeAvsiso()

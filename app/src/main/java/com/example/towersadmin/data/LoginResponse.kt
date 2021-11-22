@@ -22,6 +22,12 @@ data class LoginResponse(
     @SerializedName("email")
     var email: String,
 
+    var apartamento: Apartamento,
+
+    var bloco: Bloco,
+
+    var condominio: Condominio,
+
     @SerializedName("token")
     var token: String,
 )
