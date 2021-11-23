@@ -39,7 +39,7 @@ interface ApiService {
         @Part(value = "sindico_id") sindico_id: Int) : Call<VisitanteSindicoRes>
 
     @GET(Constants.AVISOS_URL)
-    fun listarAvisos(@Path("id")id: Int) : Call<List<Aviso>>
+    fun listarAvisos(@Body avisos : Avisos) : Call<List<Aviso>>
 
     @POST(Constants.AVISOS_URL)
     fun novoAviso(@Body aviso: Aviso) : Call<Aviso>

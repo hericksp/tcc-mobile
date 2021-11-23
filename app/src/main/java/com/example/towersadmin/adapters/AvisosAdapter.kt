@@ -6,17 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.data.Aviso
-import org.w3c.dom.Text
+import com.example.towersadmin.data.Avisos
 
 class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.AvisoViewHolder>() {
 
     private var listaAvisos = emptyList<Aviso>()
 
-    fun updateListaAviso(lista : List<Aviso>){
+    fun updateListaAviso(lista: List<Aviso>){
         listaAvisos = lista
         notifyDataSetChanged()
     }
@@ -35,11 +34,11 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
         val aviso = listaAvisos[position]
 
-        holder.titulo_aviso.text = aviso.titulo_aviso
-        holder.data_hora.text = aviso.data_hora
-        holder.aviso.text = aviso.aviso
-        holder.status.text = aviso.status_aviso
-        holder.link.text = aviso.link
+        holder.titulo_aviso.text = aviso.avisoRes.titulo_aviso
+        holder.data_hora.text = aviso.avisoRes.data_hora
+        holder.aviso.text = aviso.avisoRes.titulo
+        holder.status.text = aviso.avisoRes.status_aviso
+        holder.link.text = aviso.avisoRes.link
     }
 
     override fun getItemCount(): Int {

@@ -10,6 +10,9 @@
             android:id="@+id/nav_aviso"
             android:title="@string/action_aviso" />
         <item
+            android:id="@+id/nav_mural_de_avisos"
+            android:title="@string/action_mural_de_avisos" />
+        <item
             android:id="@+id/nav_agendamento"
             android:title="@string/action_agendamento" />
         <item
@@ -18,9 +21,7 @@
         <item
             android:id="@+id/nav_assembleias"
             android:title="@string/action_assembleias" />
-        <item
-            android:id="@+id/nav_mural_de_avisos"
-            android:title="@string/action_mural_de_avisos" />
+
         <item
             android:id="@+id/nav_cadastro_visitantes"
             android:title="@string/action_cadastro_visitantes" />

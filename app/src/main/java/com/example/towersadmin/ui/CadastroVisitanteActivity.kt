@@ -42,15 +42,19 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         val cpf: EditText = findViewById(R.id.et_cpf)
         val bnt_cadastrar: Button = findViewById(R.id.btn_salvar)
 
-        if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-        }
 
-        else{
 
             bnt_cadastrar.setOnClickListener {
 
-                val remote = apiClient.retrofitService()
+                val remote = ApiClient().retrofitService()
+
+                if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
+                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+                }
+
+                else{
+
+
 
                 val path = applicationContext.filesDir.absolutePath
                 val file = File("$path/filename")

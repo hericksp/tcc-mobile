@@ -8,11 +8,13 @@
         <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/layout/activity_dashboard.xml" value="0.23157894736842105" />
         <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/layout/activity_login_sindico.xml" value="0.23157894736842105" />
+        <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/layout/activity_novo_aviso.xml" value="0.23157894736842105" />
         <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/layout/avisos_recycler_view_layout.xml" value="0.22" />
+        <entry key="..\:/Users/20272523/AndroidStudioProjects/tcc-mobile/app/src/main/res/menu/dashboard.xml" value="0.17847222222222223" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

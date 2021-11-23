@@ -87,7 +87,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 abrirMuralDeAvsiso()
             }
             R.id.nav_mural_de_avisos -> {
-                abrirMuralDeAvsiso()
+                abrirNovoAviso()
             }
             R.id.nav_cadastro_visitantes -> {
                 abrirCadastroVisitantes()
@@ -137,8 +137,8 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         finish()
     }
 
-    private fun abrirReclamacoes() {
-        val intent = Intent(this, activity_reclamacoes::class.java)
+    private fun abrirNovoAviso() {
+        val intent = Intent(this, NovoAviso::class.java)
         startActivity(intent)
         finish()
     }

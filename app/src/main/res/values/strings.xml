@@ -10,7 +10,7 @@
     <string name="action_agendamento">Agendamentos</string>
     <string name="action_conversas">Converse com o seu sindico</string>
     <string name="action_assembleias">Assembleias</string>
-    <string name="action_mural_de_avisos">Mural de avisos</string>
+    <string name="action_mural_de_avisos">Criar Novo Aviso</string>
     <string name="action_cadastro_visitantes">Cadastrar Visitantes</string>
     <string name="action_votacao">Votações Online</string>
     <string name="action_pagamento_condominal">Pagamento Condominal</string>

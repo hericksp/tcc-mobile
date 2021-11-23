@@ -6,18 +6,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.adapters.AvisosAdapter
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.data.Aviso
+import com.example.towersadmin.data.Avisos
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +40,7 @@ class activity_aviso : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso)
 
-        semAviso()
+
 
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
@@ -68,9 +66,13 @@ class activity_aviso : AppCompatActivity() {
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
             val condominio_id = dados.getInt("condominio_id", 0)
 
+//            val aviso = Aviso(0, null, null,null, null,
+//                null, condominio_id)
+
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Aviso>> = remote.listarAvisos(condominio_id)
+            //TODO: setar o id do condominio certo
+            val call: Call<List<Aviso>> = remote.listarAvisos(Avisos(condominio_id))
 
             call.enqueue(object : Callback<List<Aviso>>{
                 override fun onResponse(call: Call<List<Aviso>>, response: Response<List<Aviso>>) {

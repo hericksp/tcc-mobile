@@ -1,21 +1,22 @@
 package com.example.towersadmin.ui
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.adapters.AvisosAdapter
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.data.Aviso
+import com.example.towersadmin.data.Avisos
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,6 +40,8 @@ class activity_aviso_morador : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso)
+
+        semAviso()
 
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
@@ -68,7 +71,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Aviso>> = remote.listarAvisos(condominio_id)
+            val call: Call<List<Aviso>> = remote.listarAvisos(Avisos(condominio_id))
 
             call.enqueue(object : Callback<List<Aviso>>{
                 override fun onResponse(call: Call<List<Aviso>>, response: Response<List<Aviso>>) {
@@ -95,6 +98,23 @@ class activity_aviso_morador : AppCompatActivity() {
 
         btn_novo_aviso.setOnClickListener {
             novoAviso()
+        }
+    }
+    private fun semAviso() {
+
+        if (titulo_aviso.text == null) {
+
+
+            val caixaDeDialogo = AlertDialog.Builder(this)
+
+            caixaDeDialogo.setTitle("Ainda não há nenhum aviso. Deseja criar?")
+            caixaDeDialogo.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
+                novoAviso()
+            }
+            caixaDeDialogo.setNegativeButton("Não") { dialogInterface: DialogInterface, i: Int ->
+                abrirDashBoard()
+            }
+            caixaDeDialogo.show()
         }
     }
 
