@@ -7,7 +7,7 @@ import android.util.Base64
 import java.io.ByteArrayOutputStream
 
 
-fun converterBitmapParaByteArray(imagem: Bitmap?): ByteArray? {
+private fun converterBitmapParaByteArray(imagem: Bitmap?): ByteArray? {
 
     val stream = ByteArrayOutputStream()
 
@@ -15,7 +15,6 @@ fun converterBitmapParaByteArray(imagem: Bitmap?): ByteArray? {
 
         val imageArray = imagem.compress(Bitmap.CompressFormat.PNG, 0, stream)
         return stream.toByteArray()
-
     }
 
     return null

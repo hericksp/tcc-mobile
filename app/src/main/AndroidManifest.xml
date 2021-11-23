@@ -17,6 +17,7 @@
         android:theme="@style/Theme.TowersAdmin"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".ui.CadastroVisitanteSindico"></activity>
         <activity
             android:name=".ui.DashBoardMorador"
             android:exported="false" />

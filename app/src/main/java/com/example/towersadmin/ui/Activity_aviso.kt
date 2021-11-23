@@ -1,5 +1,7 @@
 package com.example.towersadmin.ui
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,6 +41,8 @@ class activity_aviso : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso)
+
+        semAviso()
 
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
@@ -86,13 +90,29 @@ class activity_aviso : AppCompatActivity() {
         }
 
 
-
         iv_voltar.setOnClickListener {
             abrirDashBoard()
         }
 
         btn_novo_aviso.setOnClickListener {
             novoAviso()
+        }
+    }
+    private fun semAviso() {
+
+        if (titulo_aviso.text == null) {
+
+
+            val caixaDeDialogo = AlertDialog.Builder(this)
+
+            caixaDeDialogo.setTitle("Ainda não há nenhum aviso. Deseja criar?")
+            caixaDeDialogo.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
+                novoAviso()
+            }
+            caixaDeDialogo.setNegativeButton("Não") { dialogInterface: DialogInterface, i: Int ->
+                abrirDashBoard()
+            }
+            caixaDeDialogo.show()
         }
     }
 

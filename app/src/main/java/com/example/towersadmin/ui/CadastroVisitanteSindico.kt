@@ -10,6 +10,7 @@ import android.widget.*
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.data.VisitanteMoradorRes
+import com.example.towersadmin.data.VisitanteSindicoRes
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,7 +18,7 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
 
-class CadastroVisitanteActivity : AppCompatActivity() {
+class CadastroVisitanteSindico : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
     private lateinit var apiClient: ApiClient
@@ -30,7 +31,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro_visitante)
+        setContentView(R.layout.activity_cadastro_visitante_sindico)
 
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
 
@@ -56,7 +57,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                 val file = File("$path/filename")
 
 
-                remote.cadastroVisitante(
+                remote.cadastroVisitanteSindico(
                     dados.getInt("id", 0),
                     nome.text.toString(),
                     rg.text.toString(),
@@ -64,17 +65,17 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                     file.toString(),
                     dados.getInt("id", 0)
                 )
-                    .enqueue(object : Callback<VisitanteMoradorRes> {
-                        override fun onResponse(call: Call<VisitanteMoradorRes>, response: Response<VisitanteMoradorRes>) {
+                    .enqueue(object : Callback<VisitanteSindicoRes> {
+                        override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>) {
                             val response = response.body()
                             Log.i("response", response.toString())
-                            Toast.makeText(this@CadastroVisitanteActivity, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
-                            abrirDashBoardMorador()
+                            Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
+                            abrirDashBoard()
 
                         }
 
-                        override fun onFailure(call: Call<VisitanteMoradorRes>, t: Throwable) {
-                            Toast.makeText(this@CadastroVisitanteActivity, "Algo deu errado!", Toast.LENGTH_LONG).show()
+                        override fun onFailure(call: Call<VisitanteSindicoRes>, t: Throwable) {
+                            Toast.makeText(this@CadastroVisitanteSindico, "Algo deu errado!", Toast.LENGTH_LONG).show()
 
                             Log.i("error", t.toString())
                         }
@@ -86,7 +87,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoardMorador()
+            abrirDashBoard()
         }
 
         tv_foto.setOnClickListener {
@@ -96,8 +97,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
     }
 
-    private fun abrirDashBoardMorador() {
-        val intent = Intent(this, DashBoardMorador::class.java)
+    private fun abrirDashBoard() {
+        val intent = Intent(this, DashBoardActivity::class.java)
         startActivity(intent)
     }
 

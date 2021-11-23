@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
         val lembrar = dados.getBoolean("lembrar", false)
 
         if (lembrar == true){
-            abrirDashBoard()
+            abrirDashBoardMorador()
         }
 
         apiClient = ApiClient()
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                                 )
 
                                 Log.i("response", loginResponse.toString())
-                                abrirDashBoard()
+                                abrirDashBoardMorador()
 
                             } else if(loginResponse?.moradorId != null) {
                                 sessionManager.saveAuthToken(
@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
                                 )
 
                                 Log.i("response", loginResponse.toString())
-                                abrirDashBoard()
+                                abrirDashBoardMorador()
 
                             } else{
                                 Toast.makeText(this@LoginActivity, "Email ou senha incorretos!", Toast.LENGTH_SHORT).show()
@@ -96,8 +96,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-    private fun abrirDashBoard() {
-        val intent = Intent(this, DashBoardActivity::class.java)
+    private fun abrirDashBoardMorador() {
+        val intent = Intent(this, DashBoardMorador::class.java)
         startActivity(intent)
         finish()
     }
