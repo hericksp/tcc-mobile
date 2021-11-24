@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -29,7 +30,7 @@ class activity_aviso : AppCompatActivity() {
     lateinit var btn_novo_aviso : Button
     lateinit var iv_voltar : Button
 
-    lateinit var titulo_aviso : TextView
+    lateinit var titulo_aviso : RecyclerView
     lateinit var data_hora : TextView
     lateinit var editar_aviso : TextView
     lateinit var main_aviso : TextView
@@ -40,39 +41,38 @@ class activity_aviso : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso)
 
-
-
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
         avisosAdapter = AvisosAdapter(this)
 
+
         btn_reload = findViewById(R.id.btn_reload)
         btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
+        iv_voltar = findViewById(R.id.iv_voltar)
 
-        titulo_aviso = findViewById(R.id.titulo_aviso)
-        data_hora = findViewById(R.id.data_hora_aviso)
+
+
+
+        /*data_hora = findViewById(R.id.data_hora_aviso)
         editar_aviso = findViewById(R.id.tv_editar_aviso)
         main_aviso = findViewById(R.id.tv_main_aviso)
         status = findViewById(R.id.tv_status_aviso)
-        link = findViewById(R.id.tv_link)
+        link = findViewById(R.id.tv_link)*/
 
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
 
         rvAvisos.adapter = avisosAdapter
 
-        btn_reload.setOnClickListener {
 
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
             val condominio_id = dados.getInt("condominio_id", 0)
 
-//            val aviso = Aviso(0, null, null,null, null,
-//                null, condominio_id)
+
 
             val remote = ApiClient().retrofitService()
 
-            //TODO: setar o id do condominio certo
-            val call: Call<List<Avisos>> = remote.listarAvisos(Avisos(0, null, null, null, null, null, condominio_id))
+            val call: Call<List<Avisos>> = remote.listarAvisos(/*Avisos(0, "null", "null", "null", "null", "null", condominio_id)*/)
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {
@@ -80,16 +80,17 @@ class activity_aviso : AppCompatActivity() {
                     val avisos = response.body()
 
                     avisosAdapter.updateListaAviso(avisos!!)
+
+                    Log.i("NAOSEI", avisos.toString())
                 }
 
                 override fun onFailure(call: Call<List<Avisos>>, t: Throwable) {
                     Toast.makeText(this@activity_aviso, "Algo deu errado!", Toast.LENGTH_LONG).show()
-                    Log.i("avisosList", t.message.toString())
+                    Log.i("NAOSEI", t.message.toString())
 
                 }
 
             })
-        }
 
 
         iv_voltar.setOnClickListener {
@@ -98,23 +99,6 @@ class activity_aviso : AppCompatActivity() {
 
         btn_novo_aviso.setOnClickListener {
             novoAviso()
-        }
-    }
-    private fun semAviso() {
-
-        if (titulo_aviso.text == null) {
-
-
-            val caixaDeDialogo = AlertDialog.Builder(this)
-
-            caixaDeDialogo.setTitle("Ainda não há nenhum aviso. Deseja criar?")
-            caixaDeDialogo.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
-                novoAviso()
-            }
-            caixaDeDialogo.setNegativeButton("Não") { dialogInterface: DialogInterface, i: Int ->
-                abrirDashBoard()
-            }
-            caixaDeDialogo.show()
         }
     }
 

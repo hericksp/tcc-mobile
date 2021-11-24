@@ -30,7 +30,7 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
     override fun onBindViewHolder(holder: AvisoViewHolder, position: Int) {
 
-        Log.i("xptoholder", "getBindViewHolder")
+        //Log.i("xptoholder", "getBindViewHolder")
 
         val aviso = listaAvisos[position]
 
@@ -43,7 +43,7 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
     override fun getItemCount(): Int {
 
-        Log.i("xptohoder", "getItemCount")
+        //Log.i("xptohoder", "getItemCount")
 
         return listaAvisos.size
     }

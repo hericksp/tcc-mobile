@@ -41,7 +41,6 @@ class activity_aviso_morador : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aviso)
 
-        semAviso()
 
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
@@ -49,13 +48,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
         btn_reload = findViewById(R.id.btn_reload)
         btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
-
-        titulo_aviso = findViewById(R.id.titulo_aviso)
-        data_hora = findViewById(R.id.data_hora_aviso)
-        editar_aviso = findViewById(R.id.tv_editar_aviso)
-        main_aviso = findViewById(R.id.tv_main_aviso)
-        status = findViewById(R.id.tv_status_aviso)
-        link = findViewById(R.id.tv_link)
+        iv_voltar = findViewById(R.id.iv_voltar)
 
         btn_reload.isClickable
         btn_novo_aviso.isInvisible
@@ -71,7 +64,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Avisos>> = remote.listarAvisos(Avisos(0, null, null, null, null, null, condominio_id))
+            val call: Call<List<Avisos>> = remote.listarAvisos(/*Avisos(0, null, null, null, null, null, condominio_id)*/)
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {
@@ -98,23 +91,6 @@ class activity_aviso_morador : AppCompatActivity() {
 
         btn_novo_aviso.setOnClickListener {
             novoAviso()
-        }
-    }
-    private fun semAviso() {
-
-        if (titulo_aviso.text == null) {
-
-
-            val caixaDeDialogo = AlertDialog.Builder(this)
-
-            caixaDeDialogo.setTitle("Ainda não há nenhum aviso. Deseja criar?")
-            caixaDeDialogo.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
-                novoAviso()
-            }
-            caixaDeDialogo.setNegativeButton("Não") { dialogInterface: DialogInterface, i: Int ->
-                abrirDashBoard()
-            }
-            caixaDeDialogo.show()
         }
     }
 
