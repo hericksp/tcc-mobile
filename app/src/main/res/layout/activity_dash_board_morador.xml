@@ -23,7 +23,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_dashboard"
-        app:menu="@menu/dashboard" />
+        app:menu="@menu/dashboard_morador" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

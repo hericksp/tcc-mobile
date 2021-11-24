@@ -86,9 +86,6 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
             R.id.nav_aviso -> {
                 abrirMuralDeAvsiso()
             }
-            R.id.nav_mural_de_avisos -> {
-                abrirMuralDeAvsiso()
-            }
             R.id.nav_cadastro_visitantes -> {
                 abrirCadastroVisitantesMorador()
             }

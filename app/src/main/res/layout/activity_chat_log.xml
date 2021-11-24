@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="ui.ChatActivityLog">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/primary"
+        android:backgroundTint="@color/primary"
+        app:cardBackgroundColor="#074EAD">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_img_friend_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp">
+            <!--            app:cardCornerRadius="48dp"-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@color/primary"
+                android:backgroundTint="@color/primary"
+                android:scaleType="fitStart"
+                app:cardCornerRadius="20dp"
+                app:srcCompat="@drawable/ic_baseline_person_24" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_friend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/card_img_friend_profile"
+            android:layout_toRightOf="@id/card_img_friend_profile"
+            android:gravity="center"
+            android:text="Jean Henrique"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"></androidx.appcompat.widget.AppCompatTextView>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/secondary"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_chat_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="0dp"
+        app:cardBackgroundColor="@color/primary">
+
+        <ImageButton
+            android:id="@+id/button_send_msg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/recyclerview_chat_log"
+            android:layout_marginStart="370dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/edittext_chat_log"
+            android:background="@color/secondary"
+            android:backgroundTint="@color/secondary"
+            app:srcCompat="@drawable/ic_baseline_send_24" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="340dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="13dp"
+            app:cardCornerRadius="19dp">
+
+            <EditText
+                android:id="@+id/editTextChat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="18dp"
+                android:hint="Mensagem"
+                android:inputType="text"
+                android:textSize="18dp" />
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+    <!--   ultima-->
+</RelativeLayout>

@@ -1,9 +1,7 @@
 package com.example.towersadmin.api
 
-import android.graphics.Bitmap
 import com.example.towersadmin.data.*
 import com.example.towersadmin.utils.Constants
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.Body
@@ -39,10 +37,10 @@ interface ApiService {
         @Part(value = "sindico_id") sindico_id: Int) : Call<VisitanteSindicoRes>
 
     @GET(Constants.AVISOS_URL)
-    fun listarAvisos(@Body avisos : Avisos) : Call<List<Aviso>>
+    fun listarAvisos(@Body avisos : Avisos) : Call<List<Avisos>>
 
     @POST(Constants.AVISOS_URL)
-    fun novoAviso(@Body aviso: Aviso) : Call<Aviso>
+    fun novoAviso(@Body avisoReq: AvisoReq) : Call<AvisoRes>
 
 
 }

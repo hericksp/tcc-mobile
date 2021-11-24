@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.adapters.AvisosAdapter
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.Aviso
+import com.example.towersadmin.data.AvisoReq
 import com.example.towersadmin.data.Avisos
 import retrofit2.Call
 import retrofit2.Callback
@@ -71,17 +71,17 @@ class activity_aviso_morador : AppCompatActivity() {
 
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Aviso>> = remote.listarAvisos(Avisos(condominio_id))
+            val call: Call<List<Avisos>> = remote.listarAvisos(Avisos(0, null, null, null, null, null, condominio_id))
 
-            call.enqueue(object : Callback<List<Aviso>>{
-                override fun onResponse(call: Call<List<Aviso>>, response: Response<List<Aviso>>) {
+            call.enqueue(object : Callback<List<Avisos>>{
+                override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {
 
                     val avisos = response.body()
 
                     avisosAdapter.updateListaAviso(avisos!!)
                 }
 
-                override fun onFailure(call: Call<List<Aviso>>, t: Throwable) {
+                override fun onFailure(call: Call<List<Avisos>>, t: Throwable) {
                     Toast.makeText(this@activity_aviso_morador, "Algo deu errado!", Toast.LENGTH_LONG).show()
                     Log.i("avisosList", t.message.toString())
 

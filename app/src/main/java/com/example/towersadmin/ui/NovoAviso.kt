@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.Aviso
+import com.example.towersadmin.data.AvisoReq
 import com.example.towersadmin.data.AvisoRes
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +29,7 @@ class NovoAviso : AppCompatActivity() {
         val tv_mensagem: EditText = findViewById(R.id.tv_mensagem)
         val tv_link: EditText = findViewById(R.id.tv_link)
         val tv_status: EditText = findViewById(R.id.tv_status)
+        val tv_data: EditText = findViewById(R.id.tv_data)
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         val btnNovoAviso: Button = findViewById(R.id.btn_criar_novo_aviso)
 
@@ -44,30 +45,26 @@ class NovoAviso : AppCompatActivity() {
 
         btnNovoAviso.setOnClickListener {
 
-
-            val avisoRes:AvisoRes = AvisoRes(30, tv_titulo.text.toString(), hoje.toString(), tv_mensagem.text.toString(), tv_status.text.toString(),
-                tv_link.text.toString())
-            val aviso:Aviso = Aviso(avisoRes,condominio_id)
-
+            val aviso = AvisoReq(tv_titulo.text.toString(), tv_mensagem.text.toString(), tv_link.text.toString(),
+            tv_status.text.toString(), tv_data.text.toString(), condominio_id)
 
             val remote = ApiClient().retrofitService()
 
+            remote.novoAviso(aviso)
+                .enqueue(object : Callback<AvisoRes>{
+                override fun onResponse(call: Call<AvisoRes>, response: Response<AvisoRes>) {
 
-            val call: Call<Aviso> = remote.novoAviso(aviso)
-
-            call.enqueue(object : Callback<Aviso>{
-                override fun onResponse(call: Call<Aviso>, response: Response<Aviso>) {
-                    //val reponse = response.body()
                     Toast.makeText(applicationContext, "Aviso criado com sucesso!", Toast.LENGTH_LONG).show()
                     abrirDashBoard()
-                    Log.i("avisoResponse", response.body().toString())
-                    Log.i("avisoResponse", response.code().toString())
+
+                    val responseAviso = response.body()
+                    Log.i("avisoresponse", responseAviso.toString())
 
                 }
 
-                override fun onFailure(call: Call<Aviso>, t: Throwable) {
-                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                    Log.i("avisoResponse", "DEU MERDA")}
+                override fun onFailure(call: Call<AvisoRes>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Algo deu errado! Tente novamente mais tarde.", Toast.LENGTH_LONG).show()
+                    Log.i("avisoResponse", t.toString())}
             })
         }
 
