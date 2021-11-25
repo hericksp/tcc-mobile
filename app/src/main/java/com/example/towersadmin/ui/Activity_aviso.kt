@@ -26,7 +26,6 @@ class activity_aviso : AppCompatActivity() {
     lateinit var rvAvisos : RecyclerView
     lateinit var avisosAdapter : AvisosAdapter
 
-    lateinit var btn_reload : Button
     lateinit var btn_novo_aviso : Button
     lateinit var iv_voltar : Button
 
@@ -46,7 +45,6 @@ class activity_aviso : AppCompatActivity() {
         avisosAdapter = AvisosAdapter(this)
 
 
-        btn_reload = findViewById(R.id.btn_reload)
         btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
         iv_voltar = findViewById(R.id.iv_voltar)
 

@@ -9,21 +9,6 @@
     tools:context=".ui.activity_aviso">
 
     <Button
-        android:id="@+id/btn_reload"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:drawableStart="@drawable/ic_baseline_autorenew_24"
-        android:drawableTint="@color/primary"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
         android:id="@+id/iv_voltar"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"

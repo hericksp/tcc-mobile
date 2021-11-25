@@ -33,7 +33,7 @@
                 android:layout_height="32dp"
                 android:background="@color/primary"
                 android:gravity="bottom"
-                android:text="Título Aviso"
+                android:hint="Os avisos aparecerão aqui!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -44,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primary"
                 android:gravity="start"
-                android:hint="Não há informações sobre data disponível"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white" />
 
@@ -55,7 +54,7 @@
                 android:layout_height="75dp"
                 android:background="@color/white"
                 android:gravity="center"
-                android:text="Reunião Hoje às 18hrs"
+                android:text="Ainda não há nenhum aviso disponível!"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,8 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:gravity="center"
-                android:hint="Aviso Padrão" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/tv_link"
@@ -72,7 +70,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:gravity="center|top"
-                android:hint="Não há link disponível"
                 android:textColor="?android:attr/textColorLink" />
 
         </LinearLayout>

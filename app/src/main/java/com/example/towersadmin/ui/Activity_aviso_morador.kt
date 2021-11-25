@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +27,6 @@ class activity_aviso_morador : AppCompatActivity() {
     lateinit var rvAvisos : RecyclerView
     lateinit var avisosAdapter : AvisosAdapter
 
-    lateinit var btn_reload : Button
     lateinit var btn_novo_aviso : Button
     lateinit var iv_voltar : Button
 
@@ -46,11 +46,10 @@ class activity_aviso_morador : AppCompatActivity() {
         rvAvisos = findViewById(R.id.rv_avisos)
         avisosAdapter = AvisosAdapter(this)
 
-        btn_reload = findViewById(R.id.btn_reload)
         btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
         iv_voltar = findViewById(R.id.iv_voltar)
 
-        btn_novo_aviso.isInvisible
+        btn_novo_aviso.isGone
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
 
