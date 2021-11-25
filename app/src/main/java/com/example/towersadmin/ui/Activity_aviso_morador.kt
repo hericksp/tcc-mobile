@@ -86,9 +86,6 @@ class activity_aviso_morador : AppCompatActivity() {
             abrirDashBoard()
         }
 
-        btn_novo_aviso.setOnClickListener {
-            novoAviso()
-        }
     }
 
     private fun abrirDashBoard() {
