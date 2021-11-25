@@ -50,14 +50,13 @@ class activity_aviso_morador : AppCompatActivity() {
         btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
         iv_voltar = findViewById(R.id.iv_voltar)
 
-        btn_reload.isClickable
         btn_novo_aviso.isInvisible
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
 
         rvAvisos.adapter = avisosAdapter
 
-        btn_reload.setOnClickListener {
+
 
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
             val condominio_id = dados.getInt("condominio_id", 0)
@@ -81,7 +80,6 @@ class activity_aviso_morador : AppCompatActivity() {
                 }
 
             })
-        }
 
 
 

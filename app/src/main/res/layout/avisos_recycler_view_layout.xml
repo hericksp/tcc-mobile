@@ -44,18 +44,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primary"
                 android:gravity="start"
-                android:text="Data e hora"
+                android:hint="Não há informações sobre data disponível"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/tv_editar_aviso"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:drawableTint="@color/white"
-                android:gravity="center_vertical|end"
-                android:text="Editar"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@color/white" />
 
             <TextView
@@ -74,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:gravity="center"
-                android:text="Status" />
+                android:hint="Aviso Padrão" />
 
             <TextView
                 android:id="@+id/tv_link"
@@ -82,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:gravity="center|top"
-                android:text="Link"
+                android:hint="Não há link disponível"
                 android:textColor="?android:attr/textColorLink" />
 
         </LinearLayout>

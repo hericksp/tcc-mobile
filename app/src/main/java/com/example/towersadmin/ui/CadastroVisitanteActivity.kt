@@ -54,24 +54,21 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
                 else{
 
-
-
                 val path = applicationContext.filesDir.absolutePath
-                val file = File("$path/filename")
-
+                val file = File("$path/filename").toString()
 
                 remote.cadastroVisitante(
                     dados.getInt("id", 0),
                     nome.text.toString(),
                     rg.text.toString(),
                     cpf.text.toString(),
-                    file.toString(),
+                    file,
                     dados.getInt("id", 0)
                 )
                     .enqueue(object : Callback<VisitanteMoradorRes> {
                         override fun onResponse(call: Call<VisitanteMoradorRes>, response: Response<VisitanteMoradorRes>) {
                             val response = response.body()
-                            Log.i("response", response.toString())
+                            Log.i("visitanteRes", response.toString())
                             Toast.makeText(this@CadastroVisitanteActivity, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
 

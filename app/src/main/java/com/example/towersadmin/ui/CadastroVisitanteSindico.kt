@@ -23,8 +23,8 @@ class CadastroVisitanteSindico : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
 
 
-    lateinit var iv_image : ImageView
-    lateinit var tv_foto : TextView
+    lateinit var iv_image: ImageView
+    lateinit var tv_foto: TextView
 
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
@@ -36,7 +36,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
-        iv_image  = findViewById(R.id.iv_image)
+        iv_image = findViewById(R.id.iv_image)
         val tv_foto: TextView = findViewById(R.id.tv_foto)
         val rg: EditText = findViewById(R.id.et_rg)
         val nome: EditText = findViewById(R.id.et_nome)
@@ -45,20 +45,15 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
 
 
-            bnt_cadastrar.setOnClickListener {
+        bnt_cadastrar.setOnClickListener {
 
-                val remote = ApiClient().retrofitService()
+            val remote = ApiClient().retrofitService()
 
-                if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
-                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-                }
-
-                else{
-
-
-
+            if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            } else {
                 val path = applicationContext.filesDir.absolutePath
-                val file = File("$path/filename")
+                val file = File("$path/filename").toString()
 
 
                 remote.cadastroVisitanteSindico(
@@ -66,13 +61,13 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                     nome.text.toString(),
                     rg.text.toString(),
                     cpf.text.toString(),
-                    file.toString(),
+                    file,
                     dados.getInt("id", 0)
                 )
                     .enqueue(object : Callback<VisitanteSindicoRes> {
-                        override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>) {
+                        override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>){
                             val response = response.body()
-                            Log.i("response", response.toString())
+                            Log.i("sindicoRes", response.toString())
                             Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoard()
 
@@ -130,7 +125,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CODE_IMAGE && resultCode == -1){
+        if (requestCode == CODE_IMAGE && resultCode == -1) {
 
             //recuperar a imagem no stream
             val stream = contentResolver.openInputStream(data!!.data!!)
@@ -145,8 +140,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
             //Colocar imagem no ImageView
             iv_image.setImageBitmap(imageBitmap)
 
-        }
-        else {
+        } else {
             Toast.makeText(this, "Selecione uma foto", Toast.LENGTH_LONG).show()
         }
     }
@@ -155,7 +149,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         val stream = ByteArrayOutputStream()
 
-        if (imagem != null){
+        if (imagem != null) {
 
             val imageArray = imagem.compress(Bitmap.CompressFormat.PNG, 0, stream)
             return stream.toByteArray()
