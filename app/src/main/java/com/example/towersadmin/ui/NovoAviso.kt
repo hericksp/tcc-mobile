@@ -55,7 +55,7 @@ class NovoAviso : AppCompatActivity() {
                 override fun onResponse(call: Call<AvisoRes>, response: Response<AvisoRes>) {
 
                     Toast.makeText(applicationContext, "Aviso criado com sucesso!", Toast.LENGTH_LONG).show()
-                    abrirDashBoard()
+                    abrirAvisos()
 
                     val responseAviso = response.body()
                     Log.i("avisoresponse", responseAviso.toString())
@@ -68,6 +68,10 @@ class NovoAviso : AppCompatActivity() {
             })
         }
 
+    }
+    private fun abrirAvisos() {
+        val intent = Intent(this, activity_aviso::class.java)
+        startActivity(intent)
     }
     private fun abrirDashBoard() {
         val intent = Intent(this, DashBoardActivity::class.java)

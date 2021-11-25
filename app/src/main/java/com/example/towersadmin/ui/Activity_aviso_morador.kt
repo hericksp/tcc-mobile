@@ -83,13 +83,13 @@ class activity_aviso_morador : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoard()
+            abrirDashBoardMorador()
         }
 
     }
 
-    private fun abrirDashBoard() {
-        val intent = Intent(this, DashBoardActivity::class.java)
+    private fun abrirDashBoardMorador() {
+        val intent = Intent(this, DashBoardMorador::class.java)
         startActivity(intent)
     }
 
