@@ -7,9 +7,8 @@ import android.util.Log
 import android.widget.*
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.LoginRequest
-import com.example.towersadmin.data.LoginResponse
-import com.example.towersadmin.data.LoginSindicoResponse
+import com.example.towersadmin.resquests.LoginRequest
+import com.example.towersadmin.responses.LoginSindicoResponse
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -57,7 +56,7 @@ class LoginSindicoActivity : AppCompatActivity() {
                                 sessionManager.saveAuthToken(
                                     loginResponse.sindicoId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
-                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj, loginResponse.name,
+                                    loginResponse.condominio.id, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = true
@@ -65,20 +64,20 @@ class LoginSindicoActivity : AppCompatActivity() {
 
                                 abrirDashBoard()
 
-                                Log.i("response", response.body().toString())
+                                Log.i("LOGIN_RESPONSE", response.body().toString())
 
                             }
                             else if(loginResponse?.sindicoId != null) {
                                 sessionManager.saveAuthToken(
                                     loginResponse.sindicoId,  loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
-                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj,
+                                    loginResponse.condominio.id, loginResponse.condominio.cnpj,
                                     loginResponse.name, loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = false
                                 )
 
-                                Log.i("response", loginResponse.toString())
+                                Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoard()
 
                             } else {

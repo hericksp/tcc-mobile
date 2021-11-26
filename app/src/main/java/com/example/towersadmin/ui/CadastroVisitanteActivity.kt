@@ -9,7 +9,7 @@ import android.util.Log
 import android.widget.*
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.VisitanteMoradorRes
+import com.example.towersadmin.responses.VisitanteMoradorRes
 import com.example.towersadmin.utils.Mask
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call

@@ -1,11 +1,14 @@
-package com.example.towersadmin.data
+package com.example.towersadmin.resquests
 
+import android.graphics.Bitmap
+import android.util.Base64
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
-data class CadastroVisitanteReq(
+data class CadastroVisitanteSindicoReq(
 
-        @SerializedName("morador_id")
-        var morador_id: Int,
+        @SerializedName("sindico_id")
+        var sindico_id: Int,
 
         @SerializedName("name")
         var name: String,
@@ -17,7 +20,6 @@ data class CadastroVisitanteReq(
         var cpf: String,
 
         @SerializedName("image")
-        var image: String
-
+        var image: ByteArray?
 
 )

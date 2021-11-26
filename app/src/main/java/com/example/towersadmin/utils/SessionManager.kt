@@ -15,7 +15,6 @@ class SessionManager(context: Context) {
         const val BLOCO_ID = "bloco_id"
         const val BLOCO_NOME = "bloco_nome"
         const val CONDOMINIO_ID = "condominio_id"
-        const val CONDOMINIO_NOME = "condominio_nome"
         const val CONDOMINIO_CNPJ = "condominio_cnpj"
         const val USER_NAME = "user_name"
         const val USER_SURNAME = "user_surname"
@@ -27,7 +26,7 @@ class SessionManager(context: Context) {
     }
 
     //Função para salvar o token de autenticação
-    fun saveAuthToken(id:Int, apto_id: Int, apto_num:String, bloco_id:Int, bloco_nome: String, cond_id: Int, condominio_nome:String, condominio_cnpj: String, name:String, surname:String, cpf:String, birth:String, email:String, token:String, lembrar:Boolean){
+    fun saveAuthToken(id:Int, apto_id: Int, apto_num:String, bloco_id:Int, bloco_nome: String, cond_id: Int, condominio_cnpj: String, name:String, surname:String, cpf:String, birth:String, email:String, token:String, lembrar:Boolean){
 
         val editor = prefs.edit()
         editor.putInt(USER_ID, id)
@@ -36,7 +35,6 @@ class SessionManager(context: Context) {
         editor.putInt(BLOCO_ID, bloco_id)
         editor.putString(BLOCO_NOME, bloco_nome)
         editor.putInt(CONDOMINIO_ID, cond_id)
-        editor.putString(CONDOMINIO_NOME, condominio_nome)
         editor.putString(CONDOMINIO_CNPJ, condominio_cnpj)
         editor.putString(USER_NAME, name)
         editor.putString(USER_SURNAME, surname)

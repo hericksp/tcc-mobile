@@ -1,6 +1,9 @@
 package com.example.towersadmin.api
 
 import com.example.towersadmin.data.*
+import com.example.towersadmin.responses.*
+import com.example.towersadmin.resquests.AvisoReq
+import com.example.towersadmin.resquests.LoginRequest
 import com.example.towersadmin.utils.Constants
 import retrofit2.Call
 import retrofit2.http.*

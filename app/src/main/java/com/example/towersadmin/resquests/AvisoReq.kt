@@ -1,4 +1,4 @@
-package com.example.towersadmin.data
+package com.example.towersadmin.resquests
 
 data class AvisoReq(
     var titulo: String,

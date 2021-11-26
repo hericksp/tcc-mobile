@@ -1,11 +1,14 @@
-package com.example.towersadmin.data
+package com.example.towersadmin.responses
 
+import com.example.towersadmin.data.Apartamento
+import com.example.towersadmin.data.Bloco
+import com.example.towersadmin.data.Condominio
 import com.google.gson.annotations.SerializedName
 
-data class LoginSindicoResponse(
+data class LoginResponse(
 
-    @SerializedName("sindicoId")
-    var sindicoId: Int,
+    @SerializedName("moradorId")
+    var moradorId: Int,
 
     @SerializedName("name")
     var name: String,

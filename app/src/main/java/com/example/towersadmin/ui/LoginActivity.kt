@@ -7,8 +7,8 @@ import android.util.Log
 import android.widget.*
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.LoginRequest
-import com.example.towersadmin.data.LoginResponse
+import com.example.towersadmin.resquests.LoginRequest
+import com.example.towersadmin.responses.LoginResponse
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -57,26 +57,26 @@ class LoginActivity : AppCompatActivity() {
                                 sessionManager.saveAuthToken(
                                     loginResponse.moradorId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
-                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj,
+                                    loginResponse.condominio.id, loginResponse.condominio.cnpj,
                                     loginResponse.name, loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = true
                                 )
 
-                                Log.i("response", loginResponse.toString())
+                                Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoardMorador()
 
                             } else if(loginResponse?.moradorId != null) {
                                 sessionManager.saveAuthToken(
                                     loginResponse.moradorId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
-                                    loginResponse.condominio.id, loginResponse.condominio.nome, loginResponse.condominio.cnpj, loginResponse.name,
+                                    loginResponse.condominio.id, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
                                     loginResponse.token, lembrar = false
                                 )
 
-                                Log.i("response", loginResponse.toString())
+                                Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoardMorador()
 
                             } else{
@@ -86,6 +86,7 @@ class LoginActivity : AppCompatActivity() {
 
                         override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                             Toast.makeText(this@LoginActivity, "Algo deu errado!", Toast.LENGTH_SHORT).show()
+                            Log.i("XPTO", t.message.toString())
                         }
                     })
 

@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.data.AvisoReq
-import com.example.towersadmin.data.AvisoRes
+import com.example.towersadmin.resquests.AvisoReq
+import com.example.towersadmin.responses.AvisoRes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,27 +45,45 @@ class NovoAviso : AppCompatActivity() {
 
         btnNovoAviso.setOnClickListener {
 
-            val aviso = AvisoReq(tv_titulo.text.toString(), tv_mensagem.text.toString(), tv_link.text.toString(),
-            tv_status.text.toString(), tv_data.text.toString(), condominio_id)
+            if (tv_mensagem.text.isEmpty() || tv_titulo.text.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            } else {
+                val aviso = AvisoReq(
+                    tv_titulo.text.toString(), tv_mensagem.text.toString(), tv_link.text.toString(),
+                    tv_status.text.toString(), tv_data.text.toString(), condominio_id
+                )
 
-            val remote = ApiClient().retrofitService()
+                val remote = ApiClient().retrofitService()
 
-            remote.novoAviso(aviso)
-                .enqueue(object : Callback<AvisoRes>{
-                override fun onResponse(call: Call<AvisoRes>, response: Response<AvisoRes>) {
+                remote.novoAviso(aviso)
+                    .enqueue(object : Callback<AvisoRes> {
+                        override fun onResponse(
+                            call: Call<AvisoRes>,
+                            response: Response<AvisoRes>
+                        ) {
 
-                    Toast.makeText(applicationContext, "Aviso criado com sucesso!", Toast.LENGTH_LONG).show()
-                    abrirAvisos()
+                            Toast.makeText(
+                                applicationContext,
+                                "Aviso criado com sucesso!",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            abrirAvisos()
 
-                    val responseAviso = response.body()
-                    Log.i("avisoresponse", responseAviso.toString())
+                            val responseAviso = response.body()
+                            Log.i("avisoresponse", responseAviso.toString())
 
-                }
+                        }
 
-                override fun onFailure(call: Call<AvisoRes>, t: Throwable) {
-                    Toast.makeText(applicationContext, "Algo deu errado! Tente novamente mais tarde.", Toast.LENGTH_LONG).show()
-                    Log.i("avisoResponse", t.toString())}
-            })
+                        override fun onFailure(call: Call<AvisoRes>, t: Throwable) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Algo deu errado! Tente novamente mais tarde.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                            Log.i("avisoResponse", t.toString())
+                        }
+                    })
+            }
         }
 
     }
