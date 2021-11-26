@@ -46,7 +46,7 @@ class NovoAviso : AppCompatActivity() {
         btnNovoAviso.setOnClickListener {
 
             if (tv_mensagem.text.isEmpty() || tv_titulo.text.isEmpty()) {
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Preencha todos os campos obrigatórios!", Toast.LENGTH_LONG).show()
             } else {
                 val aviso = AvisoReq(
                     tv_titulo.text.toString(), tv_mensagem.text.toString(), tv_link.text.toString(),

@@ -44,14 +44,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Título do aviso"
+            android:hint="Título do aviso *"
             android:inputType="text"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
             android:id="@+id/tv_mensagem"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="Mensagem"
+            android:hint="Mensagem *"
             android:inputType="text"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="@+id/tv_titulo"
@@ -119,6 +119,15 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_status"
             app:layout_constraintStart_toStartOf="@+id/tv_status"
             app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:text="* = Campo Obrigatório"
+            app:layout_constraintStart_toStartOf="@+id/tv_titulo"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
