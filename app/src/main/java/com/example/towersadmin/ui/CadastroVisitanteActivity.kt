@@ -10,6 +10,7 @@ import android.widget.*
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.data.VisitanteMoradorRes
+import com.example.towersadmin.utils.Mask
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,6 +42,9 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         val nome: EditText = findViewById(R.id.et_nome)
         val cpf: EditText = findViewById(R.id.et_cpf)
         val bnt_cadastrar: Button = findViewById(R.id.btn_salvar)
+
+        cpf.addTextChangedListener(Mask.mask("###.###.###-##", cpf)).toString()
+        rg.addTextChangedListener(Mask.mask("##.###.###-#", rg)).toString()
 
 
 
