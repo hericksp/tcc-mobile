@@ -25,6 +25,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
     lateinit var iv_image : ImageView
     lateinit var tv_foto : TextView
+    lateinit var tvImage : TextView
 
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
@@ -37,13 +38,14 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         iv_image  = findViewById(R.id.iv_image)
+        tv_foto = findViewById(R.id.path_foto)
         val tv_foto: TextView = findViewById(R.id.tv_foto)
         val rg: EditText = findViewById(R.id.et_rg)
         val nome: EditText = findViewById(R.id.et_nome)
         val cpf: EditText = findViewById(R.id.et_cpf)
         val bnt_cadastrar: Button = findViewById(R.id.btn_salvar)
 
-        cpf.addTextChangedListener(Mask.mask("###.###.###-##", cpf)).toString()
+        cpf.addTextChangedListener(Mask.mask("##/##/####", cpf)).toString()
         rg.addTextChangedListener(Mask.mask("##.###.###-#", rg)).toString()
 
 
@@ -60,6 +62,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
                 val path = applicationContext.filesDir.absolutePath
                 val file = File("$path/filename").toString()
+                    tv_foto.text = file
 
                 remote.cadastroVisitante(
                     dados.getInt("id", 0),
@@ -139,6 +142,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
             val path = applicationContext.filesDir.absolutePath
             val file = File("$path/filename")
+            tv_foto.text = file.toString()
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
@@ -149,18 +153,5 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         else {
             Toast.makeText(this, "Selecione uma foto", Toast.LENGTH_LONG).show()
         }
-    }
-
-    private fun converterBitmapParaByteArray(imagem: Bitmap?): ByteArray? {
-
-        val stream = ByteArrayOutputStream()
-
-        if (imagem != null){
-
-            val imageArray = imagem.compress(Bitmap.CompressFormat.PNG, 0, stream)
-            return stream.toByteArray()
-        }
-
-        return null
     }
 }

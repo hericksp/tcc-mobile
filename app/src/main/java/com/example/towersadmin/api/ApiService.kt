@@ -25,7 +25,7 @@ interface ApiService {
         @Path("morador_id") id: Int,
         @Part(value = "name") name: String,
         @Part(value = "rg") rg: String,
-        @Part(value = "cpf") cpf: String,
+        @Part(value = "data") data: String,
         @Part(value = "image", encoding = "8-bit") image: String,
         @Part(value = "morador_id") morador_id: Int) : Call<VisitanteMoradorRes>
 
@@ -35,7 +35,7 @@ interface ApiService {
         @Path("sindico_id") id: Int,
         @Part(value = "name") name: String,
         @Part(value = "rg") rg: String,
-        @Part(value = "cpf") cpf: String,
+        @Part(value = "data") data: String,
         @Part(value = "image", encoding = "8-bit") image: String,
         @Part(value = "sindico_id") sindico_id: Int) : Call<VisitanteSindicoRes>
 

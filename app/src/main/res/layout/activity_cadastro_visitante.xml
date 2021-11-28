@@ -19,16 +19,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_image"
             android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:layout_weight="0"
             android:background="@color/primary"
             android:backgroundTint="@color/primary"
-            android:text="Salvar"
+            android:text="Salvar Visitante"
             android:textColor="@color/white"
             app:cornerRadius="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+            app:layout_constraintTop_toBottomOf="@+id/path_foto" />
 
         <TextView
             android:id="@+id/textView2"
@@ -50,7 +50,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="72dp"
             android:ems="10"
-            android:hint="Nome"
+            android:hint="Completo"
             android:inputType="textPersonName"
             android:textColor="#000000"
             android:textColorHint="#000000"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="CPF"
+            android:hint="Data Visita"
             android:inputType="number"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -103,12 +103,12 @@
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:elegantTextHeight="true"
             android:text="SELECIONAR FOTO"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/et_cpf"
-            app:layout_constraintStart_toStartOf="@+id/et_cpf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_cpf" />
 
         <Button
@@ -124,6 +124,16 @@
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/path_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Arquivo Selecionado"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

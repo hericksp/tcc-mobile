@@ -37,13 +37,13 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         iv_image = findViewById(R.id.iv_image)
-        val tv_foto: TextView = findViewById(R.id.tv_foto)
+        tv_foto = findViewById(R.id.path_foto2)
         val rg: EditText = findViewById(R.id.et_rg)
         val nome: EditText = findViewById(R.id.et_nome)
         val cpf: EditText = findViewById(R.id.et_cpf)
         val bnt_cadastrar: Button = findViewById(R.id.btn_salvar)
 
-        cpf.addTextChangedListener(Mask.mask("###.###.###-##", cpf)).toString()
+        cpf.addTextChangedListener(Mask.mask("##/##/####", cpf)).toString()
         rg.addTextChangedListener(Mask.mask("##.###.###-#", rg)).toString()
 
 
@@ -56,6 +56,8 @@ class CadastroVisitanteSindico : AppCompatActivity() {
             } else {
                 val path = applicationContext.filesDir.absolutePath
                 val file = File("$path/filename").toString()
+                tv_foto.text = file
+
 
 
                 remote.cadastroVisitanteSindico(
@@ -111,13 +113,13 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         // Definindo qual o tipo de conteúdo deverá ser obtido
 
-        intent.type = "image/*"
+        // ******intent.type = "image/png"******
 
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
         startActivityForResult(
             Intent.createChooser(
-                intent,
+                intent.setType("image/png"),
                 "Escolha uma foto"
             ),
             CODE_IMAGE
@@ -135,12 +137,15 @@ class CadastroVisitanteSindico : AppCompatActivity() {
             //Trnaformar Stream num BitMap
 
             val path = applicationContext.filesDir.absolutePath
-            val file = File("$path/filename")
+            val file = File("$path")
+
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
             //Colocar imagem no ImageView
             iv_image.setImageBitmap(imageBitmap)
+            tv_foto.text = imageBitmap.toString()
+
 
         } else {
             Toast.makeText(this, "Selecione uma foto", Toast.LENGTH_LONG).show()
