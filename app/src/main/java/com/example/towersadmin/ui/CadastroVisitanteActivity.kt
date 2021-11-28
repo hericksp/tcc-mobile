@@ -26,6 +26,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
     lateinit var iv_image : ImageView
     lateinit var tv_foto : TextView
     lateinit var tvImage : TextView
+    lateinit var tv_fotopath: TextView
+
 
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
@@ -38,7 +40,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         iv_image  = findViewById(R.id.iv_image)
-        tv_foto = findViewById(R.id.path_foto)
+        tv_foto = findViewById(R.id.tv_foto)
+        tv_fotopath = findViewById(R.id.path_foto)
         val tv_foto: TextView = findViewById(R.id.tv_foto)
         val rg: EditText = findViewById(R.id.et_rg)
         val nome: EditText = findViewById(R.id.et_nome)
@@ -141,8 +144,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
             //Trnaformar Stream num BitMap
 
             val path = applicationContext.filesDir.absolutePath
-            val file = File("$path/filename")
-            tv_foto.text = file.toString()
+            val file = File("$path")
+            tv_fotopath = file.toString()
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
