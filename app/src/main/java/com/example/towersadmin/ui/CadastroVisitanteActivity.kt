@@ -145,7 +145,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
             val path = applicationContext.filesDir.absolutePath
             val file = File("$path")
-            tv_fotopath = file.toString()
+            tv_fotopath.text = file.toString()
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
