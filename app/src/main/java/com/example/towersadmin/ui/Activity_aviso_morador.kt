@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
@@ -22,8 +23,6 @@ class activity_aviso_morador : AppCompatActivity() {
 
     lateinit var rvAvisos : RecyclerView
     lateinit var avisosAdapter : AvisosAdapter
-
-    lateinit var btn_novo_aviso : Button
     lateinit var iv_voltar : Button
 
     lateinit var titulo_aviso : TextView
@@ -35,17 +34,15 @@ class activity_aviso_morador : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_aviso)
+        setContentView(R.layout.activity_aviso_morador)
 
 
         //Configuração da RecyclerView
         rvAvisos = findViewById(R.id.rv_avisos)
         avisosAdapter = AvisosAdapter(this)
 
-        btn_novo_aviso = findViewById(R.id.btn_novo_aviso)
-        iv_voltar = findViewById(R.id.iv_voltar)
 
-        btn_novo_aviso.isGone
+        iv_voltar = findViewById(R.id.iv_voltar)
 
         rvAvisos.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
 

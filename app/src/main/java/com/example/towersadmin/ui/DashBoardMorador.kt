@@ -39,7 +39,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
         toolbar.title = null
 
         drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
+        navView = findViewById(R.id.nav_view_morador)
 
         val header: View = navView.getHeaderView(0)
         val header_nome: TextView = header.findViewById(R.id.header_nome)
@@ -57,9 +57,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(
-            this
-        )
+        navView.setNavigationItemSelectedListener(this)
     }
 
 
@@ -96,6 +94,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
 
+
     }
 
     private fun abrirCaixaDialogo() {
@@ -129,7 +128,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     private fun abrirMuralDeAvsiso() {
-        val intent = Intent(this, activity_aviso::class.java)
+        val intent = Intent(this, activity_aviso_morador::class.java)
         startActivity(intent)
         finish()
     }
@@ -157,6 +156,37 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
         startActivity(intent)
         finish()
     }
+    // Código botão Voltar
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            checkExit();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    private void checkExit()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(“Deseja realmente sair?”)
+        .setCancelable(false)
+        .setPositiveButton(“Sim”, new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+            finish();
+//Ação tomada caso o usuário escolha sim.
+        }
+    })
+        .setNegativeButton(“Não”, new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+            dialog.cancel();
+        }
+    });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
 
 }
 
