@@ -1,13 +1,17 @@
 package com.example.towersadmin.ui
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.core.graphics.PathUtils
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
@@ -24,6 +28,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.nio.file.Path
 
 class CadastroVisitanteActivity : AppCompatActivity() {
@@ -40,6 +45,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_visitante)
@@ -70,11 +76,12 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                 }
 
                 else{
+                    val uri = uriToFile(this, Uri.fromFile())
 
-                    val path = applicationContext.filesDir.absolutePath
-                    val file = File(RealPathUtlis.getRealPathFromURI_API19(applicationContext, Uri.fromFile(filesDir)))
-                    val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-                    val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name, requestFile)
+                    //val path = applicationContext.filesDir.absolutePath
+                    val file = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+                        val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+                    val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name)
 
                 remote.cadastroVisitante(
                     dados.getInt("id", 0),
@@ -115,6 +122,26 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
 
     }
+    private fun createImageFile(fileName: String = "temp_image"): File{
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile("temp_image", ".jpg", storageDir)
+    }
+
+    private fun uriToFile(context: Context, uri: Uri, fileName:String):File?{
+    context.contentResolver.openInputStream(uri)?.let { inputStream ->
+
+        val tempFile: File = createImageFile(fileName)
+        val fileOutputStream = FileOutputStream(tempFile)
+
+        inputStream.copyTo(fileOutputStream)
+        inputStream.close()
+        fileOutputStream.close()
+
+        return tempFile
+    }
+
+        return null
+    }
 
     private fun abrirDashBoardMorador() {
         val intent = Intent(this, DashBoardMorador::class.java)
@@ -152,7 +179,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
             //Trnaformar Stream num BitMap
 
-            val path = applicationContext.filesDir.absolutePath
+            val path = applicationContext.filesDir.absoluteFile.absolutePath
             val file = File("$path")
             tv_fotopath.text = file.toString()
 

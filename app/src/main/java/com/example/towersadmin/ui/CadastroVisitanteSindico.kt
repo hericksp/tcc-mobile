@@ -62,10 +62,11 @@ class CadastroVisitanteSindico : AppCompatActivity() {
             if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             } else {
-                val path = applicationContext.filesDir.absolutePath
+                //val path = applicationContext.filesDir.absolutePath
+                    val path : Uri =
                 val file = File(RealPathUtlis.getRealPathFromURI_API19(applicationContext, Uri.fromFile(filesDir)))
                 val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-                val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name, requestFile)
+                val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name)
 
                 remote.cadastroVisitanteSindico(
                     dados.getInt("id", 0),
