@@ -7,5 +7,7 @@ object Constants {
     const val VISITANTE_MORADOR_URL = "/visitantes/morador/{morador_id}"
     const val VISITANTE_SINDICO_URL = "/visitantes/sindico/{sindico_id}"
     const val AVISOS_URL = "/avisos"
+    const val DELETAR_AVISO = "/avisos/{id}"
+
 //    const val POSTS_URL = "posts"
 }   

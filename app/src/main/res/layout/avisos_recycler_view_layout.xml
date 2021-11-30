@@ -67,7 +67,7 @@
             <TextView
                 android:id="@+id/tv_link"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="31dp"
                 android:background="@color/white"
                 android:gravity="center|top"
                 android:textColor="?android:attr/textColorLink" />

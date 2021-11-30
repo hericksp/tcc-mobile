@@ -3,6 +3,7 @@ package com.example.towersadmin.ui
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +12,12 @@ import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.responses.VisitanteSindicoRes
 import com.example.towersadmin.utils.Mask
+import com.example.towersadmin.utils.RealPathUtlis
 import com.example.towersadmin.utils.SessionManager
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,15 +63,16 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             } else {
                 val path = applicationContext.filesDir.absolutePath
-                val file = File("$path/filename").toString()
-
+                val file = File(RealPathUtlis.getRealPathFromURI_API19(applicationContext, Uri.fromFile(filesDir)))
+                val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+                val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name, requestFile)
 
                 remote.cadastroVisitanteSindico(
                     dados.getInt("id", 0),
                     nome.text.toString(),
                     rg.text.toString(),
                     cpf.text.toString(),
-                    file,
+                    body,
                     dados.getInt("id", 0)
                 )
                     .enqueue(object : Callback<VisitanteSindicoRes> {
