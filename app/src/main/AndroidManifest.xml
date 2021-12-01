@@ -22,17 +22,17 @@
             android:exported="false" />
         <activity android:name=".ui.CadastroVisitanteSindico" />
         <activity
-            android:name=".ui.DashBoardMorador"
+            android:name=".ui.dashboards.DashBoardMorador"
             android:exported="false" />
-        <activity android:name=".ui.EditarAviso" />
-        <activity android:name=".ui.NovoAviso" />
+        <activity android:name=".ui.aviso.EditarAviso" />
+        <activity android:name=".ui.aviso.NovoAviso" />
         <activity android:name=".ui.AgendamentoEspaco" />
         <activity android:name=".ui.activity_votacao" />
         <activity android:name=".ui.activity_reclamacoes" />
-        <activity android:name=".ui.activity_aviso" />
-        <activity android:name=".ui.LoginSindicoActivity" />
-        <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.activity_aviso_morador"/>
+        <activity android:name=".ui.aviso.activity_aviso" />
+        <activity android:name=".ui.logins.LoginSindicoActivity" />
+        <activity android:name=".ui.logins.LoginActivity" />
+        <activity android:name=".ui.aviso.activity_aviso_morador"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,14 +42,14 @@
         </activity>
         <activity
             android:name=".ui.CadastroAdminActivity"
-            android:parentActivityName=".ui.DashBoardActivity" />
+            android:parentActivityName=".ui.dashboards.DashBoardActivity" />
         <activity
             android:name=".ui.CadastroVisitanteActivity"
-            android:parentActivityName=".ui.DashBoardActivity" />
-        <activity android:name=".ui.DashBoardActivity" />
+            android:parentActivityName=".ui.dashboards.DashBoardActivity" />
+        <activity android:name=".ui.dashboards.DashBoardActivity" />
         <activity
             android:name=".ui.CadastroMoradorActivity"
-            android:parentActivityName=".ui.DashBoardActivity" />
+            android:parentActivityName=".ui.dashboards.DashBoardActivity" />
     </application>
 
 </manifest>

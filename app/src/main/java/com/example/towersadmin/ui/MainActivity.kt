@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.towersadmin.R
+import com.example.towersadmin.ui.dashboards.DashBoardActivity
+import com.example.towersadmin.ui.dashboards.DashBoardMorador
+import com.example.towersadmin.ui.logins.LoginActivity
+import com.example.towersadmin.ui.logins.LoginSindicoActivity
 
 
 class MainActivity : AppCompatActivity() {

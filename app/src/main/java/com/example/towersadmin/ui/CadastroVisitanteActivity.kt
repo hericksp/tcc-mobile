@@ -12,12 +12,11 @@ import android.os.Environment
 import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.graphics.PathUtils
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.responses.VisitanteMoradorRes
+import com.example.towersadmin.ui.dashboards.DashBoardMorador
 import com.example.towersadmin.utils.Mask
-import com.example.towersadmin.utils.RealPathUtlis
 import com.example.towersadmin.utils.SessionManager
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -26,10 +25,8 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.nio.file.Path
 
 class CadastroVisitanteActivity : AppCompatActivity() {
 

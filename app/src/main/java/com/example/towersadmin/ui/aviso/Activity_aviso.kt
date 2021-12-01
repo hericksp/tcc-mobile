@@ -1,7 +1,5 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.aviso
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.adapters.AvisosAdapter
 import com.example.towersadmin.api.ApiClient
-import com.example.towersadmin.api.ApiService
 import com.example.towersadmin.data.Avisos
+import com.example.towersadmin.ui.dashboards.DashBoardActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,12 +69,12 @@ class activity_aviso : AppCompatActivity() {
 
                     avisosAdapter.updateListaAviso(avisos!!)
 
-                    Log.i("NAOSEI", avisos.toString())
+                    Log.i("XPTO", avisos.toString())
                 }
 
                 override fun onFailure(call: Call<List<Avisos>>, t: Throwable) {
                     Toast.makeText(this@activity_aviso, "Algo deu errado!", Toast.LENGTH_LONG).show()
-                    Log.i("NAOSEI", t.message.toString())
+                    Log.i("XPTO", t.message.toString())
 
                 }
 

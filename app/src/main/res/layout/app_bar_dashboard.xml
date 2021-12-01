@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.DashBoardActivity"
+    tools:context=".ui.dashboards.DashBoardActivity"
     android:id="@+id/app_toolbar"
     android:layout_height="?attr/actionBarSize">
 

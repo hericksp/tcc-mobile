@@ -1,4 +1,4 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.aviso
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

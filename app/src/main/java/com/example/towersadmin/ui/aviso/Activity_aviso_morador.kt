@@ -1,4 +1,4 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.aviso
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,14 +7,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isGone
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.adapters.AvisosAdapter
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.data.Avisos
+import com.example.towersadmin.ui.dashboards.DashBoardMorador
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

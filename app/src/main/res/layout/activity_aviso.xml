@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@+id/app_toolbar"
-    tools:context=".ui.activity_aviso">
+    tools:context=".ui.aviso.activity_aviso">
 
     <Button
         android:id="@+id/iv_voltar"

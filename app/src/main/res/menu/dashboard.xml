@@ -10,9 +10,6 @@
             android:id="@+id/nav_aviso"
             android:title="@string/action_aviso" />
         <item
-            android:id="@+id/nav_mural_de_avisos"
-            android:title="@string/action_mural_de_avisos" />
-        <item
             android:id="@+id/nav_agendamento"
             android:title="@string/action_agendamento" />
         <item

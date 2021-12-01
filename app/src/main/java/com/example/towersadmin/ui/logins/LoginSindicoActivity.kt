@@ -1,4 +1,4 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.logins
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.resquests.LoginRequest
 import com.example.towersadmin.responses.LoginSindicoResponse
+import com.example.towersadmin.ui.dashboards.DashBoardActivity
 import com.example.towersadmin.utils.SessionManager
 import retrofit2.Call
 import retrofit2.Callback

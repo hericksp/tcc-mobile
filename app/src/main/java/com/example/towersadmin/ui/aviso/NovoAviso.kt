@@ -1,4 +1,4 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.aviso
 
 import android.content.Intent
 import android.os.Build
@@ -13,6 +13,7 @@ import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.resquests.AvisoReq
 import com.example.towersadmin.responses.AvisoRes
+import com.example.towersadmin.ui.dashboards.DashBoardActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
