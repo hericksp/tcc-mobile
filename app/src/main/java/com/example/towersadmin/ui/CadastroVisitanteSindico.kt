@@ -61,7 +61,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
             if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-            } else {
+            } else {/*
                 //val path = applicationContext.filesDir.absolutePath
                     val path : Uri =
                 val file = File(RealPathUtlis.getRealPathFromURI_API19(applicationContext, Uri.fromFile(filesDir)))
@@ -90,7 +90,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
                             Log.i("error", t.toString())
                         }
-                    })
+                    })*/
             }
 
         }

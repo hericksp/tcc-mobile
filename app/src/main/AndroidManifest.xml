@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".ui.VisitanteWebView"
+            android:exported="false" />
+        <activity
             android:name=".ui.ChatActivityLog"
             android:exported="false" />
         <activity android:name=".ui.CadastroVisitanteSindico" />
@@ -32,7 +35,7 @@
         <activity android:name=".ui.aviso.activity_aviso" />
         <activity android:name=".ui.logins.LoginSindicoActivity" />
         <activity android:name=".ui.logins.LoginActivity" />
-        <activity android:name=".ui.aviso.activity_aviso_morador"/>
+        <activity android:name=".ui.aviso.activity_aviso_morador" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

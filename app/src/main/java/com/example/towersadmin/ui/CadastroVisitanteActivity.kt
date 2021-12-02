@@ -70,10 +70,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
                 if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
                     Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-                }
-
-                else{
-                    val uri = uriToFile(this, Uri.fromFile())
+                } else {
+                    /*val uri = uriToFile(this, Uri.fromFile())
 
                     //val path = applicationContext.filesDir.absolutePath
                     val file = RequestBody.create(MediaType.parse("multipart/form-data"), file)
@@ -104,8 +102,9 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                         }
                     })
             }
-
-        }
+*/
+                }
+            }
 
 
 
