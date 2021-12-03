@@ -6,8 +6,10 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
+import androidx.loader.content.CursorLoader
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.responses.VisitanteSindicoRes
@@ -32,6 +34,8 @@ class CadastroVisitanteSindico : AppCompatActivity() {
     lateinit var iv_image: ImageView
     lateinit var tv_foto: TextView
     lateinit var tv_fotopath: TextView
+    lateinit var imagePath : String
+
 
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
@@ -61,12 +65,11 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
             if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-            } else {/*
-                //val path = applicationContext.filesDir.absolutePath
-                    val path : Uri =
-                val file = File(RealPathUtlis.getRealPathFromURI_API19(applicationContext, Uri.fromFile(filesDir)))
-                val requestFile: RequestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-                val body : MultipartBody.Part = MultipartBody.Part.createFormData("image", file.name)
+            } else {
+
+                val file = File(imagePath)
+                val requestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+                val body = MultipartBody.Part.createFormData("image", file.name, requestBody)
 
                 remote.cadastroVisitanteSindico(
                     dados.getInt("id", 0),
@@ -74,26 +77,25 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                     rg.text.toString(),
                     cpf.text.toString(),
                     body,
-                    dados.getInt("id", 0)
-                )
-                    .enqueue(object : Callback<VisitanteSindicoRes> {
-                        override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>){
-                            val response = response.body()
-                            Log.i("sindicoRes", response.toString())
-                            Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
-                            abrirDashBoard()
+                    dados.getInt("id", 0)).enqueue(object : Callback<VisitanteSindicoRes> {
+                        override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>) {
+                            if (response.isSuccessful){
+                                Log.i("visitanteRes", response.toString())
+                                Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
+                                abrirDashBoard()}
+                            else{
+                                Toast.makeText(this@CadastroVisitanteSindico, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
+                            }
 
                         }
 
                         override fun onFailure(call: Call<VisitanteSindicoRes>, t: Throwable) {
-                            Toast.makeText(this@CadastroVisitanteSindico, "Algo deu errado!", Toast.LENGTH_LONG).show()
-
-                            Log.i("error", t.toString())
+                            Toast.makeText(this@CadastroVisitanteSindico, "Algo deu errado! Erro: " + t.message, Toast.LENGTH_LONG).show()
                         }
-                    })*/
+                    })
             }
-
         }
+
 
 
 
@@ -121,7 +123,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         // Definindo qual o tipo de conteúdo deverá ser obtido
 
-        // ******intent.type = "image/png"******
+         intent.type = "image/jpg"
 
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
@@ -139,6 +141,9 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         if (requestCode == CODE_IMAGE && resultCode == -1) {
 
+            val imageUri : Uri = data!!.data!!
+            imagePath = getRealPathFromUri(imageUri)
+
             //recuperar a imagem no stream
             val stream = contentResolver.openInputStream(data!!.data!!)
 
@@ -147,8 +152,6 @@ class CadastroVisitanteSindico : AppCompatActivity() {
             val path = applicationContext.filesDir.absolutePath
             val file = File("$path")
             tv_fotopath.text = file.toString()
-
-
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
@@ -162,16 +165,16 @@ class CadastroVisitanteSindico : AppCompatActivity() {
         }
     }
 
-    private fun converterBitmapParaByteArray(imagem: Bitmap?): ByteArray? {
+    private fun getRealPathFromUri(uri: Uri):String{
+        val projection = MediaStore.Images.Media.DATA
+        val loader = CursorLoader(this, uri, arrayOf(projection), null, null, null)
+        val cursor = loader.loadInBackground()!!
 
-        val stream = ByteArrayOutputStream()
+        val column_idx : Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        cursor.moveToFirst()
+        val result : String = cursor.getString(column_idx)
+        cursor.close()
 
-        if (imagem != null) {
-
-            val imageArray = imagem.compress(Bitmap.CompressFormat.PNG, 0, stream)
-            return stream.toByteArray()
-        }
-
-        return null
+        return result
     }
 }
