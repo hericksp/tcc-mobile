@@ -14,6 +14,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.loader.content.CursorLoader
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
@@ -30,17 +31,18 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
+import java.util.jar.Manifest
 
 class CadastroVisitanteActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
     private lateinit var apiClient: ApiClient
 
-    lateinit var iv_image : ImageView
-    lateinit var tv_foto : TextView
-    lateinit var tvImage : TextView
+    lateinit var iv_image: ImageView
+    lateinit var tv_foto: TextView
+    lateinit var tvImage: TextView
     lateinit var tv_fotopath: TextView
-    lateinit var imagePath : String
+    lateinit var imagePath: String
 
 
     var imageBitmap: Bitmap? = null
@@ -51,10 +53,11 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_visitante)
 
+
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
-        iv_image  = findViewById(R.id.iv_image)
+        iv_image = findViewById(R.id.iv_image)
         tv_foto = findViewById(R.id.tv_foto)
         tv_fotopath = findViewById(R.id.path_foto)
         val tv_foto: TextView = findViewById(R.id.tv_foto)
@@ -68,46 +71,46 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
 
 
-            bnt_cadastrar.setOnClickListener {
+        bnt_cadastrar.setOnClickListener {
 
-                val remote = ApiClient().retrofitService()
+            val remote = ApiClient().retrofitService()
 
-                val file = File(imagePath)
-                val requestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-                val body = MultipartBody.Part.createFormData("image", file.name, requestBody)
+            val file = File(imagePath)
+            val requestBody = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+            val body = MultipartBody.Part.createFormData("image", file.name, requestBody)
 
-                if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty()) {
-                    Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
-                } else {
+            if (nome.text.isEmpty() || rg.text.isEmpty() || cpf.text.isEmpty() || imagePath.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            } else {
 
-                    remote.cadastroVisitante(
-                    dados.getInt("id", 0),
-                    nome.text.toString(),
-                    rg.text.toString(),
-                    cpf.text.toString(),
-                    body,
-                    dados.getInt("id", 0)).enqueue(object : Callback<VisitanteMoradorRes> {
-                        override fun onResponse(call: Call<VisitanteMoradorRes>, response: Response<VisitanteMoradorRes>) {
-                            if (response.isSuccessful){
+                remote.cadastroVisitante(
+                        dados.getInt("user_id", 0),
+                        nome.text.toString(),
+                        rg.text.toString(),
+                        cpf.text.toString(),
+                        body,
+                        dados.getInt("user_id", 0)).enqueue(object : Callback<VisitanteMoradorRes> {
+                    override fun onResponse(call: Call<VisitanteMoradorRes>, response: Response<VisitanteMoradorRes>) {
+                        if (response.isSuccessful) {
                             Log.i("visitanteRes", response.toString())
                             Toast.makeText(this@CadastroVisitanteActivity, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
-                            }else{
-                                Toast.makeText(this@CadastroVisitanteActivity, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
-
-                            }
+                        } else {
+                            Toast.makeText(this@CadastroVisitanteActivity, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
 
                         }
 
-                        override fun onFailure(call: Call<VisitanteMoradorRes>, t: Throwable) {
-                            Toast.makeText(this@CadastroVisitanteActivity, "Algo deu errado! Erro: " + t.message, Toast.LENGTH_LONG).show()
+                    }
 
-                            Log.i("error", t.toString())
-                        }
-                    })
+                    override fun onFailure(call: Call<VisitanteMoradorRes>, t: Throwable) {
+                        Toast.makeText(this@CadastroVisitanteActivity, "Algo deu errado! Erro: " + t.message, Toast.LENGTH_LONG).show()
+
+                        Log.i("error", t.toString())
+                    }
+                })
             }
 
-                }
+        }
 
 
 
@@ -122,23 +125,24 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
 
     }
-    private fun createImageFile(fileName: String = "temp_image"): File{
+
+    private fun createImageFile(fileName: String = "temp_image"): File {
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile("temp_image", ".jpg", storageDir)
     }
 
-    private fun uriToFile(context: Context, uri: Uri, fileName:String):File?{
-    context.contentResolver.openInputStream(uri)?.let { inputStream ->
+    private fun uriToFile(context: Context, uri: Uri, fileName: String): File? {
+        context.contentResolver.openInputStream(uri)?.let { inputStream ->
 
-        val tempFile: File = createImageFile(fileName)
-        val fileOutputStream = FileOutputStream(tempFile)
+            val tempFile: File = createImageFile(fileName)
+            val fileOutputStream = FileOutputStream(tempFile)
 
-        inputStream.copyTo(fileOutputStream)
-        inputStream.close()
-        fileOutputStream.close()
+            inputStream.copyTo(fileOutputStream)
+            inputStream.close()
+            fileOutputStream.close()
 
-        return tempFile
-    }
+            return tempFile
+        }
 
         return null
     }
@@ -161,20 +165,20 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
         startActivityForResult(
-            Intent.createChooser(
-                intent,
-                "Escolha uma foto"
-            ),
-            CODE_IMAGE
+                Intent.createChooser(
+                        intent.setType("image/jpg"),
+                        "Escolha uma foto"
+                ),
+                CODE_IMAGE
         )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CODE_IMAGE && resultCode == -1){
+        if (requestCode == CODE_IMAGE && resultCode == -1) {
 
-            val imageUri : Uri = data!!.data!!
+            val imageUri: Uri = data!!.data!!
             imagePath = getRealPathFromUri(imageUri)
 
             //recuperar a imagem no stream
@@ -182,29 +186,27 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
             //Trnaformar Stream num BitMap
 
-            val path = applicationContext.filesDir.absoluteFile.absolutePath
-            val file = File("$path")
-            tv_fotopath.text = file.toString()
 
             imageBitmap = BitmapFactory.decodeStream(stream)
 
             //Colocar imagem no ImageView
             iv_image.setImageBitmap(imageBitmap)
+            tv_fotopath.text = data.data.toString()
 
-        }
-        else {
+
+        } else {
             Toast.makeText(this, "Selecione uma foto", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun getRealPathFromUri(uri: Uri):String{
+    private fun getRealPathFromUri(uri: Uri): String {
         val projection = MediaStore.Images.Media.DATA
         val loader = CursorLoader(this, uri, arrayOf(projection), null, null, null)
         val cursor = loader.loadInBackground()!!
 
-        val column_idx : Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        val column_idx: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
         cursor.moveToFirst()
-        val result : String = cursor.getString(column_idx)
+        val result: String = cursor.getString(column_idx)
         cursor.close()
 
         return result

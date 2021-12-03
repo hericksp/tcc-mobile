@@ -88,6 +88,7 @@ class LoginSindicoActivity : AppCompatActivity() {
 
                         override fun onFailure(call: Call<LoginSindicoResponse>, t: Throwable) {
                             Toast.makeText(this@LoginSindicoActivity, "Algo deu errado", Toast.LENGTH_SHORT).show()
+                            Log.i("xpto", t.message.toString())
                         }
                     })
 

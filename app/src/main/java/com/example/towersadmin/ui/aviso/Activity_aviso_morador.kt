@@ -54,7 +54,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Avisos>> = remote.listarAvisos(/*Avisos(0, null, null, null, null, null, condominio_id)*/)
+            val call: Call<List<Avisos>> = remote.listarAvisos(condominio_id)
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {

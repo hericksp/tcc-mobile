@@ -50,7 +50,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="72dp"
             android:ems="10"
-            android:hint="Completo"
+            android:hint="Nome Completo"
             android:inputType="textPersonName"
             android:textColor="#000000"
             android:textColorHint="#000000"
