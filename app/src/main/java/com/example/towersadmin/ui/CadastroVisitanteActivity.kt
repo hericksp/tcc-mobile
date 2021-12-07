@@ -67,7 +67,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         val bnt_cadastrar: Button = findViewById(R.id.btn_salvar)
 
         cpf.addTextChangedListener(Mask.mask("##/##/####", cpf)).toString()
-        rg.addTextChangedListener(Mask.mask("##.###.###-#", rg)).toString()
+        rg.addTextChangedListener(Mask.mask("########-#", rg)).toString()
 
 
 

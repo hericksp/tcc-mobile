@@ -50,11 +50,11 @@ class activity_aviso_morador : AppCompatActivity() {
 
 
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
-            val condominio_id = dados.getInt("condominio_id", 0)
+//            val condominio_id = dados.getInt("condominio_id", 0)
 
             val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Avisos>> = remote.listarAvisos(condominio_id)
+            val call: Call<List<Avisos>> = remote.listarAvisos()
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {

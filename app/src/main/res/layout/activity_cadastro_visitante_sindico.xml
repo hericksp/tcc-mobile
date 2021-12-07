@@ -33,7 +33,8 @@
             android:layout_weight="0"
             android:background="@color/primary"
             android:backgroundTint="@color/primary"
-            android:text="Salvar Visitante"
+
+            android:text="Não funciona"
             android:textColor="@color/white"
             app:cornerRadius="18dp"
             app:layout_constraintEnd_toEndOf="parent"

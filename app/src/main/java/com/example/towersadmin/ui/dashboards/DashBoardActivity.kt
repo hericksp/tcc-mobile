@@ -15,10 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.towersadmin.R
-import com.example.towersadmin.ui.AgendamentoEspaco
-import com.example.towersadmin.ui.CadastroVisitanteActivity
-import com.example.towersadmin.ui.MainActivity
-import com.example.towersadmin.ui.activity_votacao
+import com.example.towersadmin.ui.*
 import com.example.towersadmin.ui.aviso.NovoAviso
 import com.example.towersadmin.ui.aviso.activity_aviso
 import com.google.android.material.navigation.NavigationView;
@@ -126,7 +123,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun abrirCadastroVisitantes() {
-        val intent = Intent(this, CadastroVisitanteActivity::class.java)
+        val intent = Intent(this, CadastroVisitanteSindico::class.java)
         startActivity(intent)
         finish()
     }

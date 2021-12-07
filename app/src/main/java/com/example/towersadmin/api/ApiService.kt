@@ -42,7 +42,8 @@ interface ApiService {
 
     @GET(Constants.AVISOS_URL)
     fun listarAvisos(
-            @Path("condominio_id") id:Int) : Call<List<Avisos>>
+//        @Path("condominio_id") id:Int
+    ) : Call<List<Avisos>>
 
     @POST(Constants.AVISOS_URL)
     fun novoAviso(@Body avisoReq: AvisoReq) : Call<AvisoRes>
