@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".ui.CadastroVisitanteActivity">
+    tools:context=".ui.visitantes.CadastroVisitanteActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             app:cornerRadius="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/path_foto" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
 
         <TextView
             android:id="@+id/textView2"
@@ -124,16 +124,6 @@
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/path_foto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Arquivo Selecionado"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

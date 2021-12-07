@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AgendamentoEspaco">
+    tools:context=".ui.agendamento.AgendamentoEspaco">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:id="@+id/et_responsavel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/black"
             android:ems="10"
             android:gravity="center"
@@ -51,9 +51,8 @@
             android:minHeight="48dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataFinal" />
+            app:layout_constraintStart_toStartOf="@+id/et_hora_termino"
+            app:layout_constraintTop_toBottomOf="@+id/et_hora_termino" />
 
         <Spinner
             android:id="@+id/spinner_espacos"
@@ -109,6 +108,36 @@
             app:layout_constraintEnd_toEndOf="@+id/calendarView"
             app:layout_constraintStart_toStartOf="@+id/calendarView"
             app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+        <EditText
+            android:id="@+id/et_hora_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/black"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Hora de Início"
+            android:inputType="time"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataFinal" />
+
+        <EditText
+            android:id="@+id/et_hora_termino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/black"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Hora Termino"
+            android:inputType="time"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/et_hora_inicio"
+            app:layout_constraintTop_toBottomOf="@+id/et_hora_inicio" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

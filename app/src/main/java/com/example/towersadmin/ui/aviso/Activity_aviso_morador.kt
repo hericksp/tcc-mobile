@@ -75,7 +75,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoardMorador()
+            finish()
         }
 
     }

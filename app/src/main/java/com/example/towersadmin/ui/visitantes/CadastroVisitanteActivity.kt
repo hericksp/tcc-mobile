@@ -1,11 +1,7 @@
-package com.example.towersadmin.ui
+package com.example.towersadmin.ui.visitantes
 
-import android.Manifest
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -15,16 +11,12 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
 import androidx.loader.content.CursorLoader
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.responses.VisitanteMoradorRes
-import com.example.towersadmin.responses.VisitanteSindicoRes
-import com.example.towersadmin.ui.dashboards.DashBoardActivity
 import com.example.towersadmin.ui.dashboards.DashBoardMorador
 import com.example.towersadmin.utils.Mask
 import com.example.towersadmin.utils.SessionManager
@@ -34,12 +26,10 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.security.Permission
 
-class CadastroVisitanteSindico : AppCompatActivity() {
+class CadastroVisitanteActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
     private lateinit var apiClient: ApiClient
@@ -53,20 +43,18 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
     var imageBitmap: Bitmap? = null
     val CODE_IMAGE = 100
-    val EXTERNAL_CODE = 111
-
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro_visitante_sindico)
+        setContentView(R.layout.activity_cadastro_visitante)
+
 
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
 
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         iv_image = findViewById(R.id.iv_image)
         tv_foto = findViewById(R.id.tv_foto)
-        tv_fotopath = findViewById(R.id.path_foto2)
         val tv_foto: TextView = findViewById(R.id.tv_foto)
         val rg: EditText = findViewById(R.id.et_rg)
         val nome: EditText = findViewById(R.id.et_nome)
@@ -75,6 +63,8 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         cpf.addTextChangedListener(Mask.mask("##/##/####", cpf)).toString()
         rg.addTextChangedListener(Mask.mask("########-#", rg)).toString()
+
+
 
         bnt_cadastrar.setOnClickListener {
 
@@ -88,27 +78,27 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             } else {
 
-                remote.cadastroVisitanteSindico(
-                    dados.getInt("user_id", 0),
-                    nome.text.toString(),
-                    rg.text.toString(),
-                    cpf.text.toString(),
-                    body,
-                    dados.getInt("user_id", 0)).enqueue(object : Callback<VisitanteSindicoRes> {
-                    override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>) {
+                remote.cadastroVisitante(
+                        dados.getInt("user_id", 0),
+                        nome.text.toString(),
+                        rg.text.toString(),
+                        cpf.text.toString(),
+                        body,
+                        dados.getInt("user_id", 0)).enqueue(object : Callback<VisitanteMoradorRes> {
+                    override fun onResponse(call: Call<VisitanteMoradorRes>, response: Response<VisitanteMoradorRes>) {
                         if (response.isSuccessful) {
                             Log.i("visitanteRes", response.toString())
-                            Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@CadastroVisitanteActivity, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
                         } else {
-                            Toast.makeText(this@CadastroVisitanteSindico, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@CadastroVisitanteActivity, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
 
                         }
 
                     }
 
-                    override fun onFailure(call: Call<VisitanteSindicoRes>, t: Throwable) {
-                        Toast.makeText(this@CadastroVisitanteSindico, "Algo deu errado! Erro: " + t.message, Toast.LENGTH_LONG).show()
+                    override fun onFailure(call: Call<VisitanteMoradorRes>, t: Throwable) {
+                        Toast.makeText(this@CadastroVisitanteActivity, "Algo deu errado! Erro: " + t.message, Toast.LENGTH_LONG).show()
 
                         Log.i("error", t.toString())
                     }
@@ -121,7 +111,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoardMorador()
+            finish()
         }
 
         tv_foto.setOnClickListener {
@@ -170,11 +160,11 @@ class CadastroVisitanteSindico : AppCompatActivity() {
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
         startActivityForResult(
-            Intent.createChooser(
-                intent.setType("image/jpg"),
-                "Escolha uma foto"
-            ),
-            CODE_IMAGE
+                Intent.createChooser(
+                        intent.setType("image/jpg"),
+                        "Escolha uma foto"
+                ),
+                CODE_IMAGE
         )
     }
 

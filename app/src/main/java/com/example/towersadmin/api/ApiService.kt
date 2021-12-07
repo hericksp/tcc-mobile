@@ -2,6 +2,7 @@ package com.example.towersadmin.api
 
 import com.example.towersadmin.data.*
 import com.example.towersadmin.responses.*
+import com.example.towersadmin.resquests.AgendaReq
 import com.example.towersadmin.resquests.AvisoReq
 import com.example.towersadmin.resquests.LoginRequest
 import com.example.towersadmin.utils.Constants
@@ -41,9 +42,19 @@ interface ApiService {
         @Part(value = "sindico_id") sindico_id: Int) : Call<VisitanteSindicoRes>
 
     @GET(Constants.AVISOS_URL)
-    fun listarAvisos(
-//        @Path("condominio_id") id:Int
-    ) : Call<List<Avisos>>
+    fun listarAvisos() : Call<List<Avisos>>
+
+    @GET(Constants.LISTAR_VISIT_SIND_URL)
+    fun ListarVisitasSind() : Call<List<Visitas>>
+
+    @GET(Constants.LISTAR_VISIT_MORA_URL)
+    fun ListarVisitasMor() : Call<List<Visitas>>
+
+    @POST(Constants.AGENDAMENTO_URL)
+    fun novoAgendamento(@Body agendaReq: AgendaReq) : Call<AgendaRes>
+
+    @GET(Constants.AGENDAMENTO_URL)
+    fun listarAgendamentos(@Body agendaReq: AgendaReq ) : Call<List<Agendamentos>>
 
     @POST(Constants.AVISOS_URL)
     fun novoAviso(@Body avisoReq: AvisoReq) : Call<AvisoRes>

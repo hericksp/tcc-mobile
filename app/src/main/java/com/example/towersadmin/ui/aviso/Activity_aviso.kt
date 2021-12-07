@@ -1,5 +1,6 @@
 package com.example.towersadmin.ui.aviso
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -82,7 +83,7 @@ class activity_aviso : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoard()
+            finish()
         }
 
         btn_novo_aviso.setOnClickListener {
@@ -90,17 +91,11 @@ class activity_aviso : AppCompatActivity() {
         }
     }
 
-    private fun abrirDashBoard() {
-        val intent = Intent(this, DashBoardActivity::class.java)
-        startActivity(intent)
-    }
-
-
     private fun novoAviso(){
         val intent = Intent(this, NovoAviso()::class.java)
         startActivity(intent)
     }
-    private fun deletarAviso(id:Int){
+   /* private fun deletarAviso(id:Int){
         val remote = ApiClient().retrofitService()
         val requestCall : Call<Unit> = remote.deletarAviso(id)
         
@@ -120,6 +115,6 @@ class activity_aviso : AppCompatActivity() {
 
         })
         
-    }
+    }*/
 
 }

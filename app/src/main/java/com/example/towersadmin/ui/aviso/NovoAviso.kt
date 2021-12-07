@@ -28,7 +28,7 @@ class NovoAviso : AppCompatActivity() {
 
         val tv_titulo: EditText = findViewById(R.id.tv_titulo)
         val tv_mensagem: EditText = findViewById(R.id.tv_mensagem)
-        val tv_link: EditText = findViewById(R.id.tv_link)
+        val tv_link: EditText = findViewById(R.id.hora_termino)
         val tv_status: EditText = findViewById(R.id.tv_status)
         val tv_data: EditText = findViewById(R.id.tv_data)
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
@@ -41,7 +41,7 @@ class NovoAviso : AppCompatActivity() {
 
 
         iv_voltar.setOnClickListener {
-            abrirDashBoard()
+            finish()
         }
 
         btnNovoAviso.setOnClickListener {

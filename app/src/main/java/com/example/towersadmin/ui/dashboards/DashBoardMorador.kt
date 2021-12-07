@@ -16,7 +16,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.towersadmin.R
 import com.example.towersadmin.ui.*
+import com.example.towersadmin.ui.agendamento.AgendamentoEspaco
 import com.example.towersadmin.ui.aviso.activity_aviso_morador
+import com.example.towersadmin.ui.visitantes.CadastroVisitanteActivity
 import com.google.android.material.navigation.NavigationView;
 
 

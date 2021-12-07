@@ -50,9 +50,9 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
         val titulo_aviso = itemView.findViewById<TextView>(R.id.titulo_aviso)
         val data_hora = itemView.findViewById<TextView>(R.id.data_hora_aviso)
-        val aviso = itemView.findViewById<TextView>(R.id.tv_main_aviso)
-        val status = itemView.findViewById<TextView>(R.id.tv_status_aviso)
-        val link = itemView.findViewById<TextView>(R.id.tv_link)
+        val aviso = itemView.findViewById<TextView>(R.id.data_agend)
+        val status = itemView.findViewById<TextView>(R.id.hora_termino)
+        val link = itemView.findViewById<TextView>(R.id.hora_termino)
     }
 
 
