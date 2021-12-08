@@ -40,9 +40,9 @@ class VisitasAdapter(var context: Context) : RecyclerView.Adapter<VisitasAdapter
 
     class VisitasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val nome_visitante = itemView.findViewById<TextView>(R.id.nome_responsavel)
-        val rg_visitante = itemView.findViewById<TextView>(R.id.data_agend)
-        val data_visita = itemView.findViewById<TextView>(R.id.hora_termino)
+        val nome_visitante = itemView.findViewById<TextView>(R.id.tv_nome_visitante)
+        val rg_visitante = itemView.findViewById<TextView>(R.id.tv_doc_visitante)
+        val data_visita = itemView.findViewById<TextView>(R.id.tv_data_visita)
 
     }
 }

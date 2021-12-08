@@ -36,7 +36,7 @@
                 android:text="Nome:" />
 
             <TextView
-                android:id="@+id/nome_responsavel"
+                android:id="@+id/tv_nome_visitante"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
@@ -56,7 +56,7 @@
                 android:text="Documento Cadastrado:" />
 
             <TextView
-                android:id="@+id/data_agend"
+                android:id="@+id/tv_doc_visitante"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -66,7 +66,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/hora_inicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -74,7 +73,7 @@
                 android:text="Visita para o dia:" />
 
             <TextView
-                android:id="@+id/hora_termino"
+                android:id="@+id/tv_data_visita"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"

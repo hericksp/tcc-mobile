@@ -54,7 +54,7 @@ interface ApiService {
     fun novoAgendamento(@Body agendaReq: AgendaReq) : Call<AgendaRes>
 
     @GET(Constants.AGENDAMENTO_URL)
-    fun listarAgendamentos(@Body agendaReq: AgendaReq ) : Call<List<Agendamentos>>
+    fun listarAgendamentos() : Call<List<Agendamentos>>
 
     @POST(Constants.AVISOS_URL)
     fun novoAviso(@Body avisoReq: AvisoReq) : Call<AvisoRes>

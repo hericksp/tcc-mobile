@@ -24,7 +24,7 @@ class Agendamentos : AppCompatActivity() {
     lateinit var agendamentosAdapter: AgendamentosAdapter
 
     lateinit var iv_voltar : Button
-    lateinit var tv_novo_agend : TextView
+    lateinit var tv_novo_agend : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class Agendamentos : AppCompatActivity() {
         agendamentosAdapter = AgendamentosAdapter(this)
 
         iv_voltar = findViewById(R.id.iv_voltar)
-        tv_novo_agend = findViewById(R.id.tv_novo_agend)
+        tv_novo_agend = findViewById(R.id.btn_novo_agend)
 
         rvAgendamentos.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
@@ -43,9 +43,9 @@ class Agendamentos : AppCompatActivity() {
         val remote = ApiClient().retrofitService()
 
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
-        val condominio_id = dados.getInt("condominio_id", 0)
+        val condominioId = dados.getInt("condominio_id", 0)
 
-        val call : Call<List<Agendamentos>> = remote.listarAgendamentos(AgendaReq(null, null, null, null, condominio_id))
+        val call : Call<List<Agendamentos>> = remote.listarAgendamentos()
 
         call.enqueue(object : Callback<List<Agendamentos>>{
             override fun onResponse(call: Call<List<Agendamentos>>, response: Response<List<Agendamentos>>) {

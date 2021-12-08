@@ -40,7 +40,7 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
         horaTermino.addTextChangedListener(Mask.mask("##:##", horaTermino)).toString()
 
         iv_voltar.setOnClickListener {
-            abrirDashBoard()
+            finish()
         }
 
         btnAgendar.setOnClickListener {
@@ -58,7 +58,8 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
                             Toast.makeText(this@AgendamentoEspaco, "Agendamento Criado com sucesso!", Toast.LENGTH_LONG).show()
 
                         }else{
-                            Toast.makeText(this@AgendamentoEspaco, "Algo deu errado!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@AgendamentoEspaco, response.message().toString(), Toast.LENGTH_LONG).show()
+                            Log.i("avisoResponse", response.message().toString())
                         }
 
                     }

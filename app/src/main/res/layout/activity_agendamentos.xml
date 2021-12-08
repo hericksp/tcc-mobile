@@ -30,16 +30,16 @@
       tools:listitem="@layout/agendamento_recylcer_view_layout">
   </androidx.recyclerview.widget.RecyclerView>
 
-  <TextView
-      android:id="@+id/tv_novo_agend"
+  <Button
+      android:id="@+id/btn_novo_agend"
       android:layout_width="match_parent"
       android:layout_height="?attr/actionBarSize"
-      android:background="@color/secondary"
+      android:background="@color/primary"
       android:gravity="center"
       android:text="FAZER NOVO AGENDAMENTO"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       android:textColor="@color/white"
-      android:textStyle="bold"
+      android:textStyle="normal"
       app:layout_constraintBottom_toBottomOf="@+id/rv_agendamentos"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent" />

@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
 
         <EditText
-            android:id="@+id/hora_termino"
+            android:id="@+id/tv_hora_termino"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -84,9 +84,9 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Status (Opcional)"
-            app:layout_constraintEnd_toEndOf="@+id/hora_termino"
-            app:layout_constraintStart_toStartOf="@+id/hora_termino"
-            app:layout_constraintTop_toBottomOf="@+id/hora_termino" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_hora_termino"
+            app:layout_constraintStart_toStartOf="@+id/tv_hora_termino"
+            app:layout_constraintTop_toBottomOf="@+id/tv_hora_termino" />
 
         <Button
             android:id="@+id/btn_criar_novo_aviso"

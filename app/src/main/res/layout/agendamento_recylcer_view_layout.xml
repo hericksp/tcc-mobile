@@ -74,7 +74,7 @@
                 android:text="Das" />
 
             <TextView
-                android:id="@+id/hora_inicio"
+                android:id="@+id/tv_hora_inicio"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
                 android:background="@color/white"
@@ -91,7 +91,7 @@
                 android:text="Às" />
 
             <TextView
-                android:id="@+id/hora_termino"
+                android:id="@+id/tv_hora_termino_agend"
                 android:layout_width="match_parent"
                 android:layout_height="33dp"
                 android:background="@color/white"

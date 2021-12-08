@@ -48,7 +48,7 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/data_agend"
+                android:id="@+id/tv_main_aviso"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
@@ -58,14 +58,14 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/hora_termino"
+                android:id="@+id/tv_status_aviso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:gravity="center" />
 
             <TextView
-                android:id="@+id/hora_termino"
+                android:id="@+id/tv_link"
                 android:layout_width="match_parent"
                 android:layout_height="31dp"
                 android:background="@color/white"

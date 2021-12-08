@@ -10,7 +10,7 @@ class Mask {
                 return cpfFull.replace(".", "").replace("-", "")
                     .replace("(", "").replace(")", "")
                     .replace("/", "").replace(" ", "")
-                    .replace("*", "")
+                    .replace("*", "").replace(":", "")
             }
 
 

@@ -87,7 +87,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                     override fun onResponse(call: Call<VisitanteSindicoRes>, response: Response<VisitanteSindicoRes>) {
                         if (response.isSuccessful) {
                             Log.i("visitanteRes", response.toString())
-                            Toast.makeText(this@CadastroVisitanteSindico, "Dados salvos com sucesso!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@CadastroVisitanteSindico, "Visita agendada com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
                         } else {
                             Toast.makeText(this@CadastroVisitanteSindico, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()

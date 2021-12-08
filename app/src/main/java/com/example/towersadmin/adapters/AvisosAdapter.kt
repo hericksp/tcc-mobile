@@ -1,5 +1,6 @@
 package com.example.towersadmin.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.towersadmin.R
 import com.example.towersadmin.data.Avisos
 
-class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.AvisoViewHolder>() {
+class AvisosAdapter (var context: Context) : RecyclerView.Adapter<AvisosAdapter.AvisoViewHolder>() {
 
     private var listaAvisos = emptyList<Avisos>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateListaAviso(lista: List<Avisos>){
         listaAvisos = lista
         notifyDataSetChanged()
@@ -50,9 +52,9 @@ class AvisosAdapter(var context: Context) : RecyclerView.Adapter<AvisosAdapter.A
 
         val titulo_aviso = itemView.findViewById<TextView>(R.id.titulo_aviso)
         val data_hora = itemView.findViewById<TextView>(R.id.data_hora_aviso)
-        val aviso = itemView.findViewById<TextView>(R.id.data_agend)
-        val status = itemView.findViewById<TextView>(R.id.hora_termino)
-        val link = itemView.findViewById<TextView>(R.id.hora_termino)
+        val aviso = itemView.findViewById<TextView>(R.id.tv_main_aviso)
+        val status = itemView.findViewById<TextView>(R.id.tv_status_aviso)
+        val link = itemView.findViewById<TextView>(R.id.tv_link)
     }
 
 

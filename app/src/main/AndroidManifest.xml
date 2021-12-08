@@ -35,7 +35,8 @@
         <activity
             android:name=".ui.ChatActivityLog"
             android:exported="false" />
-        <activity android:name=".ui.visitantes.CadastroVisitanteSindico" />
+        <activity android:name=".ui.visitantes.CadastroVisitanteSindico"
+            android:parentActivityName=".ui.dashboards.DashBoardActivity"/>
         <activity
             android:name=".ui.dashboards.DashBoardMorador"
             android:exported="false" />

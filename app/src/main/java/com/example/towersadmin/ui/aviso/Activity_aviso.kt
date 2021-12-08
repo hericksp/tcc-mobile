@@ -56,12 +56,12 @@ class activity_aviso : AppCompatActivity() {
 
         rvAvisos.adapter = avisosAdapter
 
+        val remote = ApiClient().retrofitService()
+
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
         val condominio_id = dados.getInt("condominio_id", 0)
 
-        val remote = ApiClient().retrofitService()
-
-            val call: Call<List<Avisos>> = remote.listarAvisos()
+        val call: Call<List<Avisos>> = remote.listarAvisos()
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {
@@ -95,26 +95,4 @@ class activity_aviso : AppCompatActivity() {
         val intent = Intent(this, NovoAviso()::class.java)
         startActivity(intent)
     }
-   /* private fun deletarAviso(id:Int){
-        val remote = ApiClient().retrofitService()
-        val requestCall : Call<Unit> = remote.deletarAviso(id)
-        
-        requestCall.enqueue(object : Callback<Unit>{
-            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                if(response.isSuccessful){
-                    Toast.makeText(this@activity_aviso, "Deletado com sucesso!", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this@activity_aviso, "Falha ao deletar", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Unit>, t: Throwable) {
-                Toast.makeText(this@activity_aviso, t.toString(), Toast.LENGTH_SHORT).show()
-                Log.i("XPTO", t.toString())
-            }
-
-        })
-        
-    }*/
-
 }

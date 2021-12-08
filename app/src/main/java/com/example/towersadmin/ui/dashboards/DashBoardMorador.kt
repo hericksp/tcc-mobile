@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.towersadmin.R
 import com.example.towersadmin.ui.*
 import com.example.towersadmin.ui.agendamento.AgendamentoEspaco
+import com.example.towersadmin.ui.agendamento.Agendamentos
 import com.example.towersadmin.ui.aviso.activity_aviso_morador
 import com.example.towersadmin.ui.visitantes.CadastroVisitanteActivity
 import com.google.android.material.navigation.NavigationView;
@@ -125,40 +126,32 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private fun abrirCadastroVisitantesMorador() {
         val intent = Intent(this, CadastroVisitanteActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun abrirMuralDeAvsiso() {
         val intent = Intent(this, activity_aviso_morador::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun abrirReclamacoes() {
         val intent = Intent(this, activity_reclamacoes::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun abrirVotacao() {
         val intent = Intent(this, activity_votacao::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun abrirAgendamentoEspaco() {
-        val intent = Intent(this, AgendamentoEspaco::class.java)
+        val intent = Intent(this, Agendamentos::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun abrirMain() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish()
     }
-
-
 
 }
 
