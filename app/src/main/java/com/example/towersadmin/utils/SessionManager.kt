@@ -22,11 +22,11 @@ class SessionManager(context: Context) {
         const val USER_BIRTH = "user_birth"
         const val USER_EMAIL = "user_email"
         const val USER_TOKEN = "user_token"
-        const val LEMBRAR = "lembrar"
+        //const val LEMBRAR = "lembrar"
     }
 
     //Função para salvar o token de autenticação
-    fun saveAuthToken(id:Int, apto_id: Int, apto_num:String, bloco_id:Int, bloco_nome: String, cond_id: Int, condominio_cnpj: String, name:String, surname:String, cpf:String, birth:String, email:String, token:String, lembrar:Boolean){
+    fun saveAuthToken(id:Int, apto_id: Int, apto_num:String, bloco_id:Int, bloco_nome: String, cond_id: Int, condominio_cnpj: String, name:String, surname:String, cpf:String, birth:String, email:String, token:String){
 
         val editor = prefs.edit()
         editor.putInt(USER_ID, id)
@@ -42,7 +42,6 @@ class SessionManager(context: Context) {
         editor.putString(USER_BIRTH, birth)
         editor.putString(USER_EMAIL, email)
         editor.putString(USER_TOKEN, token)
-        editor.putBoolean(LEMBRAR, lembrar)
         editor.apply()
     }
 

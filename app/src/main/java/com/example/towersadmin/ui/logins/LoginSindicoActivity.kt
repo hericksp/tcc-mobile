@@ -28,10 +28,6 @@ class LoginSindicoActivity : AppCompatActivity() {
 
         val lembrar = dados.getBoolean("lembrar", false)
 
-        if (lembrar == true){
-            abrirDashBoard()
-        }
-
         apiClient = ApiClient()
         sessionManager = SessionManager(this)
 
@@ -40,7 +36,6 @@ class LoginSindicoActivity : AppCompatActivity() {
         val btn_continuar: Button = findViewById(R.id.btn_continuar)
         val tv_erro: TextView = findViewById(R.id.tv_mensagem_de_erro)
         val tv_esqueceu_senha: TextView = findViewById(R.id.esqueceu_senha)
-        val check_lembrar : CheckBox = findViewById(R.id.check_lembrar)
 
         btn_continuar.setOnClickListener {
 
@@ -53,15 +48,14 @@ class LoginSindicoActivity : AppCompatActivity() {
                             call: Call<LoginSindicoResponse>, response: Response<LoginSindicoResponse>) {
                             val loginResponse = response.body()
 
-                            if (loginResponse?.sindicoId != null && check_lembrar.isChecked) {
+                            if (loginResponse?.sindicoId != null) {
                                 sessionManager.saveAuthToken(
                                     loginResponse.sindicoId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
                                     loginResponse.condominio.id, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
-                                    loginResponse.token, lembrar = true
-                                )
+                                    loginResponse.token)
 
                                 abrirDashBoard()
 
@@ -75,8 +69,7 @@ class LoginSindicoActivity : AppCompatActivity() {
                                     loginResponse.condominio.id, loginResponse.condominio.cnpj,
                                     loginResponse.name, loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
-                                    loginResponse.token, lembrar = false
-                                )
+                                    loginResponse.token)
 
                                 Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoard()

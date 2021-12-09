@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import com.example.towersadmin.R
 import com.example.towersadmin.api.ApiClient
+import com.example.towersadmin.data.Agendamentos
 import com.example.towersadmin.responses.AgendaRes
 import com.example.towersadmin.resquests.AgendaReq
 import com.example.towersadmin.ui.dashboards.DashBoardActivity
@@ -48,7 +49,7 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
             if (spinnerEspaco.selectedItemPosition == 0 || dataFinal.text == "Data Selecionada" || horaTermino.text.isEmpty() || horaTermino.text.isEmpty() || nomeResponsavel.text.isEmpty()){
                 Toast.makeText(this, "Preencha todos os campos corretamente!", Toast.LENGTH_LONG).show()
             } else{
-                val agendamento = AgendaReq(nomeResponsavel.text.toString(),selecionarData.toString(), horaInicio.text.toString(), horaTermino.text.toString(),dados.getInt("condominio_id", 0))
+                val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString(),dados.getInt("condominio_id", 0))
 
                 val remote = ApiClient().retrofitService()
 
@@ -56,7 +57,7 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
                     override fun onResponse(call: Call<AgendaRes>, response: Response<AgendaRes>) {
                         if (response.isSuccessful) {
                             Toast.makeText(this@AgendamentoEspaco, "Agendamento Criado com sucesso!", Toast.LENGTH_LONG).show()
-
+                            abrirAgendamentos()
                         }else{
                             Toast.makeText(this@AgendamentoEspaco, response.message().toString(), Toast.LENGTH_LONG).show()
                             Log.i("avisoResponse", response.message().toString())
@@ -77,8 +78,8 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
 
 
     }
-    private fun abrirDashBoard() {
-        val intent = Intent(this, DashBoardActivity::class.java)
+    private fun abrirAgendamentos() {
+        val intent = Intent(this, com.example.towersadmin.ui.agendamento.Agendamentos::class.java)
         startActivity(intent)
     }
 

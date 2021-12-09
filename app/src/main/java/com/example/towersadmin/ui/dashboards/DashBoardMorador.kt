@@ -40,7 +40,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         toolbar.title = null
 
-        drawerLayout = findViewById(R.id.drawer_layout)
+        drawerLayout = findViewById(R.id.drawer_layout_morador)
         navView = findViewById(R.id.nav_view_morador)
 
         val header: View = navView.getHeaderView(0)
@@ -65,7 +65,7 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> {
+            R.id.nav_home_morador -> {
                 drawerLayout.close()
             }
             R.id.nav_agendamento -> {
@@ -73,6 +73,9 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
             R.id.nav_conversas -> {
                 Toast.makeText(this, "Conversas Clicado", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_novo_agendamento -> {
+                novoAgendamento()
             }
             R.id.nav_pagamento_condominal -> {
                 Toast.makeText(this, "Tá Deveno Hein!", Toast.LENGTH_SHORT).show()
@@ -150,6 +153,11 @@ class DashBoardMorador : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
     private fun abrirMain() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun novoAgendamento(){
+        val intent = Intent(this, AgendamentoEspaco::class.java)
         startActivity(intent)
     }
 

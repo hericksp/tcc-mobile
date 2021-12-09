@@ -22,6 +22,7 @@ class activity_aviso_morador : AppCompatActivity() {
 
     lateinit var rvAvisos : RecyclerView
     lateinit var avisosAdapter : AvisosAdapter
+
     lateinit var iv_voltar : Button
 
     lateinit var titulo_aviso : TextView
@@ -47,14 +48,14 @@ class activity_aviso_morador : AppCompatActivity() {
 
         rvAvisos.adapter = avisosAdapter
 
+        val remote = ApiClient().retrofitService()
 
 
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
-//            val condominio_id = dados.getInt("condominio_id", 0)
+            val condominio_id = dados.getInt("condominio_id", 0)
 
-            val remote = ApiClient().retrofitService()
 
-            val call: Call<List<Avisos>> = remote.listarAvisos()
+            val call: Call<List<Avisos>> = remote.listarAvisos(condominio_id)
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {

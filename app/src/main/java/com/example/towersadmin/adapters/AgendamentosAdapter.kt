@@ -33,8 +33,8 @@ class AgendamentosAdapter (var context: Context) : RecyclerView.Adapter<Agendame
 
         holder.nome_responsavel.text = agendamento.nome
         holder.data.text = agendamento.data
-        holder.hora_inicio.text = agendamento.horaInicio
-        holder.hora_termino.text = agendamento.horaTermino
+        holder.hora_inicio.text = agendamento.horainicio
+        holder.hora_termino.text = agendamento.horatermino
     }
 
     override fun getItemCount(): Int {

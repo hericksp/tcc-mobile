@@ -19,10 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         val lembrar = dados.getBoolean("lembrar", false)
 
-        if (lembrar == true){
-            abrirDashBoard()
-        }
-
         val acesso_morador : Button = findViewById(R.id.acesso_morador)
         val acesso_sindico : Button = findViewById(R.id.acesso_sindico)
 
@@ -34,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         acesso_sindico.setOnClickListener {
             val abrirLoginSindico =  Intent(this, LoginSindicoActivity::class.java)
             startActivity(abrirLoginSindico)
-
         }
     }
     private fun abrirDashBoard() {

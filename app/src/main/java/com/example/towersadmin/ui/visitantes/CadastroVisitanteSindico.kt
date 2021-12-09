@@ -90,7 +90,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                             Toast.makeText(this@CadastroVisitanteSindico, "Visita agendada com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
                         } else {
-                            Toast.makeText(this@CadastroVisitanteSindico, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@CadastroVisitanteSindico, response.body().toString(), Toast.LENGTH_LONG).show()
 
                         }
 
@@ -154,7 +154,7 @@ class CadastroVisitanteSindico : AppCompatActivity() {
 
         // Definindo qual o tipo de conteúdo deverá ser obtido
 
-        intent.type = "image/jpg"
+        // intent.type = "image/*"
 
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
@@ -192,8 +192,8 @@ class CadastroVisitanteSindico : AppCompatActivity() {
     }
 
     private fun getRealPathFromUri(uri: Uri): String {
-        val projection = MediaStore.Images.Media.DATA
-        val loader = CursorLoader(this, uri, arrayOf(projection), null, null, null)
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val loader = CursorLoader(this, uri, projection, null, null, null)
         val cursor = loader.loadInBackground()!!
 
         val column_idx: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)

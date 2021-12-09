@@ -1,6 +1,5 @@
 package com.example.towersadmin.ui.aviso
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -61,7 +60,7 @@ class activity_aviso : AppCompatActivity() {
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
         val condominio_id = dados.getInt("condominio_id", 0)
 
-        val call: Call<List<Avisos>> = remote.listarAvisos()
+        val call: Call<List<Avisos>> = remote.listarAvisos(condominio_id)
 
             call.enqueue(object : Callback<List<Avisos>>{
                 override fun onResponse(call: Call<List<Avisos>>, response: Response<List<Avisos>>) {

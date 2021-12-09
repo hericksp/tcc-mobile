@@ -14,6 +14,7 @@ import com.example.towersadmin.api.ApiClient
 import com.example.towersadmin.resquests.AvisoReq
 import com.example.towersadmin.responses.AvisoRes
 import com.example.towersadmin.ui.dashboards.DashBoardActivity
+import com.example.towersadmin.utils.Mask
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,10 +35,11 @@ class NovoAviso : AppCompatActivity() {
         val iv_voltar: Button = findViewById(R.id.iv_voltar)
         val btnNovoAviso: Button = findViewById(R.id.btn_criar_novo_aviso)
 
-
         val hoje = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
         val condominio_id = dados.getInt("condominio_id", 0)
+
+        tv_data.addTextChangedListener(Mask.mask("##/##/####", tv_data)).toString()
 
 
         iv_voltar.setOnClickListener {

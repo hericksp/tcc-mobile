@@ -74,6 +74,9 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_agendamento -> {
                 abrirAgendamentoEspaco()
             }
+            R.id.novo_agendamento -> {
+                novoAgendamento()
+            }
             R.id.nav_conversas -> {
                 Toast.makeText(this, "Conversas Clicado", Toast.LENGTH_SHORT).show()
             }
@@ -88,6 +91,9 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
             R.id.nav_aviso -> {
                 abrirMuralDeAvsiso()
+            }
+            R.id.novo_aviso -> {
+                abrirNovoAviso()
             }
             R.id.nav_cadastro_visitantes -> {
                 abrirCadastroVisitantes()
@@ -154,6 +160,12 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
+
+    private fun novoAgendamento(){
+        val intent = Intent(this, AgendamentoEspaco::class.java)
+        startActivity(intent)
+    }
+
 
 }
 

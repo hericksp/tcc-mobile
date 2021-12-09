@@ -91,7 +91,7 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                             Toast.makeText(this@CadastroVisitanteActivity, "Visita agendada com sucesso!", Toast.LENGTH_LONG).show()
                             abrirDashBoardMorador()
                         } else {
-                            Toast.makeText(this@CadastroVisitanteActivity, "Verfique todos os campos e tente novamente!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@CadastroVisitanteActivity, response.body().toString(), Toast.LENGTH_LONG).show()
 
                         }
 
@@ -148,23 +148,22 @@ class CadastroVisitanteActivity : AppCompatActivity() {
     }
 
     private fun abrirGaleria() {
-
-        // Chamando a galeria de imagens
+// Chamando a galeria de imagens
 
         val intent = Intent(Intent.ACTION_GET_CONTENT)
 
         // Definindo qual o tipo de conteúdo deverá ser obtido
 
-        intent.type = "image/jpg"
+        // intent.type = "image/*"
 
         // Iniciar a Activity, mas nesse caso nós queremos que essa activity retorne algo pra gnt, a imagem
 
         startActivityForResult(
-                Intent.createChooser(
-                        intent.setType("image/jpg"),
-                        "Escolha uma foto"
-                ),
-                CODE_IMAGE
+            Intent.createChooser(
+                intent.setType("image/jpg"),
+                "Escolha uma foto"
+            ),
+            CODE_IMAGE
         )
     }
 
@@ -186,8 +185,6 @@ class CadastroVisitanteActivity : AppCompatActivity() {
 
             //Colocar imagem no ImageView
             iv_image.setImageBitmap(imageBitmap)
-            tv_fotopath.text = data.data.toString()
-
 
         } else {
             Toast.makeText(this, "Selecione uma foto", Toast.LENGTH_LONG).show()
@@ -195,8 +192,8 @@ class CadastroVisitanteActivity : AppCompatActivity() {
     }
 
     private fun getRealPathFromUri(uri: Uri): String {
-        val projection = MediaStore.Images.Media.DATA
-        val loader = CursorLoader(this, uri, arrayOf(projection), null, null, null)
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val loader = CursorLoader(this, uri, projection, null, null, null)
         val cursor = loader.loadInBackground()!!
 
         val column_idx: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)

@@ -45,7 +45,7 @@ class Agendamentos : AppCompatActivity() {
         val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
         val condominioId = dados.getInt("condominio_id", 0)
 
-        val call : Call<List<Agendamentos>> = remote.listarAgendamentos()
+        val call : Call<List<Agendamentos>> = remote.listarAgendamentos(condominioId)
 
         call.enqueue(object : Callback<List<Agendamentos>>{
             override fun onResponse(call: Call<List<Agendamentos>>, response: Response<List<Agendamentos>>) {

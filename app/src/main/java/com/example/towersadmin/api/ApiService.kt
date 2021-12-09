@@ -41,8 +41,9 @@ interface ApiService {
         @Part image: MultipartBody.Part,
         @Part(value = "sindico_id") sindico_id: Int) : Call<VisitanteSindicoRes>
 
-    @GET(Constants.AVISOS_URL)
-    fun listarAvisos() : Call<List<Avisos>>
+    @GET(Constants.LISTAR_AVISOS_URL)
+    fun listarAvisos(
+        @Path ("id") condominio_id:Int) : Call<List<Avisos>>
 
     @GET(Constants.LISTAR_VISIT_SIND_URL)
     fun ListarVisitasSind() : Call<List<Visitas>>
@@ -53,8 +54,8 @@ interface ApiService {
     @POST(Constants.AGENDAMENTO_URL)
     fun novoAgendamento(@Body agendaReq: AgendaReq) : Call<AgendaRes>
 
-    @GET(Constants.AGENDAMENTO_URL)
-    fun listarAgendamentos() : Call<List<Agendamentos>>
+    @GET(Constants.LISTAR_AGENDAMENTOS_URL)
+    fun listarAgendamentos(@Path("id") condominio_id:Int) : Call<List<Agendamentos>>
 
     @POST(Constants.AVISOS_URL)
     fun novoAviso(@Body avisoReq: AvisoReq) : Call<AvisoRes>

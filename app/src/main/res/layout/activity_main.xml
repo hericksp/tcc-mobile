@@ -24,7 +24,7 @@
             android:layout_marginTop="32dp"
             android:backgroundTint="@color/primary"
             android:drawableStart="@drawable/ic_baseline_person_24"
-            android:text="SÍNDICO"
+            android:text="ACESSO SÍNDICO"
             android:textColor="@color/white"
             app:cornerRadius="18dp"
             app:icon="@drawable/ic_baseline_person_24"

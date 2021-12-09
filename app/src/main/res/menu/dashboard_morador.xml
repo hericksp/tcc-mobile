@@ -4,7 +4,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_home_morador"
             android:title="@string/action_home" />
         <item
             android:id="@+id/nav_aviso"
@@ -14,12 +14,15 @@
             android:id="@+id/nav_agendamento"
             android:title="@string/action_agendamento" />
         <item
+            android:id="@+id/nav_novo_agendamento"
+            android:title="@string/action_novo_agendamento"
+            />
+        <item
             android:id="@+id/nav_conversas"
             android:title="@string/action_conversas" />
         <item
             android:id="@+id/nav_assembleias"
             android:title="@string/action_assembleias" />
-
         <item
             android:id="@+id/nav_cadastro_visitantes"
             android:title="@string/action_cadastro_visitantes" />

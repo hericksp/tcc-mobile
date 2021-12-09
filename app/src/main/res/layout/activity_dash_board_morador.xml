@@ -9,7 +9,7 @@
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    android:id="@+id/drawer_layout">
+    android:id="@+id/drawer_layout_morador">
 
     <include android:id="@+id/content_dashboard"
         layout="@layout/content_dashboard"

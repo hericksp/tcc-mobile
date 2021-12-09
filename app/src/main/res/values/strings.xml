@@ -7,7 +7,9 @@
     <string name="action_perfil">Conta</string>
     <string name="action_home">Home</string>
     <string name="action_aviso">Avisos</string>
+    <string name="action_novo_aviso">Novo Aviso</string>
     <string name="action_agendamento">Agendamentos</string>
+    <string name="action_novo_agendamento">Novo Agendamento</string>
     <string name="action_conversas">Converse com o seu sindico</string>
     <string name="action_assembleias">Assembleias</string>
     <string name="action_mural_de_avisos">Criar Novo Aviso</string>

@@ -29,10 +29,6 @@ class LoginActivity : AppCompatActivity() {
 
         val lembrar = dados.getBoolean("lembrar", false)
 
-        if (lembrar == true){
-            abrirDashBoardMorador()
-        }
-
         apiClient = ApiClient()
         sessionManager = SessionManager(this)
 
@@ -41,7 +37,6 @@ class LoginActivity : AppCompatActivity() {
         val btn_continuar: Button = findViewById(R.id.btn_continuar)
         val tv_erro: TextView = findViewById(R.id.tv_mensagem_de_erro)
         val tv_esqueceu_senha: TextView = findViewById(R.id.esqueceu_senha)
-        val check_lembrar : CheckBox = findViewById(R.id.check_lembrar)
 
 
         btn_continuar.setOnClickListener {
@@ -54,15 +49,14 @@ class LoginActivity : AppCompatActivity() {
                         override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                             val loginResponse = response.body()
 
-                            if (loginResponse?.moradorId != null && check_lembrar.isChecked) {
+                            if (loginResponse?.moradorId != null) {
                                 sessionManager.saveAuthToken(
                                     loginResponse.moradorId, loginResponse.apartamento.id, loginResponse.apartamento.numero,
                                     loginResponse.bloco.id, loginResponse.bloco.nome,
                                     loginResponse.condominio.id, loginResponse.condominio.cnpj,
                                     loginResponse.name, loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
-                                    loginResponse.token, lembrar = true
-                                )
+                                    loginResponse.token)
 
                                 Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoardMorador()
@@ -74,8 +68,7 @@ class LoginActivity : AppCompatActivity() {
                                     loginResponse.condominio.id, loginResponse.condominio.cnpj, loginResponse.name,
                                     loginResponse.surname, loginResponse.cpf,
                                     loginResponse.birth, loginResponse.email,
-                                    loginResponse.token, lembrar = false
-                                )
+                                    loginResponse.token)
 
                                 Log.i("LOGIN_RESPONSE", loginResponse.toString())
                                 abrirDashBoardMorador()

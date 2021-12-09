@@ -10,8 +10,15 @@
             android:id="@+id/nav_aviso"
             android:title="@string/action_aviso" />
         <item
+            android:id="@+id/novo_aviso"
+            android:title="Novo Aviso" />
+        <item
             android:id="@+id/nav_agendamento"
             android:title="@string/action_agendamento" />
+        <item
+            android:id="@+id/novo_agendamento"
+            android:title="@string/action_novo_agendamento"
+            />
         <item
             android:id="@+id/nav_conversas"
             android:title="@string/action_conversas" />
