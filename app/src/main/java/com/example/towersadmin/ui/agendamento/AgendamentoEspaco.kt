@@ -59,8 +59,8 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
                             Toast.makeText(this@AgendamentoEspaco, "Agendamento Criado com sucesso!", Toast.LENGTH_LONG).show()
                             abrirAgendamentos()
                         }else{
-                            Toast.makeText(this@AgendamentoEspaco, response.message().toString(), Toast.LENGTH_LONG).show()
-                            Log.i("avisoResponse", response.message().toString())
+                            Toast.makeText(this@AgendamentoEspaco, response.body().toString(), Toast.LENGTH_LONG).show()
+                            Log.i("avisoResponse", response.body().toString())
                         }
 
                     }
