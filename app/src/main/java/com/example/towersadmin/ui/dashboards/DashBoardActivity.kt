@@ -15,6 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.towersadmin.R
+import com.example.towersadmin.chat.EntranceActivity
 import com.example.towersadmin.ui.*
 import com.example.towersadmin.ui.agendamento.AgendamentoEspaco
 import com.example.towersadmin.ui.agendamento.Agendamentos
@@ -78,7 +79,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 novoAgendamento()
             }
             R.id.nav_conversas -> {
-                Toast.makeText(this, "Conversas Clicado", Toast.LENGTH_SHORT).show()
+                chat()
             }
             R.id.nav_pagamento_condominal -> {
                 Toast.makeText(this, "Tá Deveno Hein!", Toast.LENGTH_SHORT).show()
@@ -129,6 +130,11 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         val editor = dados.edit()
         editor.putBoolean("lembrar", false)
         editor.apply()
+    }
+
+    private fun chat(){
+        val intent = Intent(this, EntranceActivity::class.java)
+        startActivity(intent)
     }
 
     private fun abrirCadastroVisitantes() {

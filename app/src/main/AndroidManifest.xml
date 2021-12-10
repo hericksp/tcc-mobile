@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.towersadmin" >
+    package="com.example.towersadmin">
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -19,7 +19,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TowersAdmin"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
+        tools:targetApi="m">
+        <activity
+            android:name=".chat.ChatRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chat.EntranceActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.visitantes.VisitantesMor"
             android:exported="false" />
@@ -35,8 +41,9 @@
         <activity
             android:name=".ui.ChatActivityLog"
             android:exported="false" />
-        <activity android:name=".ui.visitantes.CadastroVisitanteSindico"
-            android:parentActivityName=".ui.dashboards.DashBoardActivity"/>
+        <activity
+            android:name=".ui.visitantes.CadastroVisitanteSindico"
+            android:parentActivityName=".ui.dashboards.DashBoardActivity" />
         <activity
             android:name=".ui.dashboards.DashBoardMorador"
             android:exported="false" />
@@ -49,7 +56,7 @@
         <activity android:name=".ui.logins.LoginSindicoActivity" />
         <activity android:name=".ui.logins.LoginActivity" />
         <activity android:name=".ui.aviso.activity_aviso_morador" />
-        <activity android:name=".ui.MainActivity" >
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

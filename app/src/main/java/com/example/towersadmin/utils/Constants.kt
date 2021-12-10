@@ -13,6 +13,7 @@ object Constants {
     const val LISTAR_VISIT_MORA_URL = "/visitantes/morador"
     const val AGENDAMENTO_URL = "/agendamentos"
     const val LISTAR_AGENDAMENTOS_URL = "/agendamento/{id}"
+    const val CHAT_URL = "http://192.168.18.35:3001"
 
 //    const val POSTS_URL = "posts"
 }   
