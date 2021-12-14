@@ -50,11 +50,11 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
                 Toast.makeText(this, "Verifique todos os campos corretamente!", Toast.LENGTH_LONG).show()
             } else{
                 val condominio_id = dados.getInt("condominio_id", 0)
-                val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString())
+                val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString(), dados.getInt("condominio_id", 0))
 
                 val remote = ApiClient().retrofitService()
 
-                remote.novoAgendamento(condominio_id, agendamento).enqueue(object : Callback<AgendaRes>{
+                remote.novoAgendamento(agendamento).enqueue(object : Callback<AgendaRes>{
                     override fun onResponse(call: Call<AgendaRes>, response: Response<AgendaRes>) {
                         if (response.isSuccessful) {
 

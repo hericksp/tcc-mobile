@@ -6,4 +6,5 @@ data class AgendaRes(
     var data: String,
     var horaInicio: String,
     var horaTermino: String
+
 )

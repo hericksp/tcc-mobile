@@ -43,7 +43,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:paddingHorizontal="50dp"
         android:text="Por TowersAdmin"
