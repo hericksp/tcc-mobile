@@ -82,10 +82,10 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 chat()
             }
             R.id.nav_pagamento_condominal -> {
-                Toast.makeText(this, "Tá Deveno Hein!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Essa funcionalidade será implementada em breve!", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_assembleias -> {
-                Toast.makeText(this, "Assembleias Clicado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Essa funcionalidade será implementada em breve!", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_votacao -> {
                 abrirVotacao()

@@ -47,20 +47,23 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
         btnAgendar.setOnClickListener {
             val dados = getSharedPreferences("TowersAdmin", MODE_PRIVATE)
             if (spinnerEspaco.selectedItemPosition == 0 || dataFinal.text == "Data Selecionada" || horaTermino.text.isEmpty() || horaTermino.text.isEmpty() || nomeResponsavel.text.isEmpty()){
-                Toast.makeText(this, "Preencha todos os campos corretamente!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Verifique todos os campos corretamente!", Toast.LENGTH_LONG).show()
             } else{
-                val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString(),dados.getInt("condominio_id", 0))
+                val condominio_id = dados.getInt("condominio_id", 0)
+                val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString())
 
                 val remote = ApiClient().retrofitService()
 
-                remote.novoAgendamento(agendamento).enqueue(object : Callback<AgendaRes>{
+                remote.novoAgendamento(condominio_id, agendamento).enqueue(object : Callback<AgendaRes>{
                     override fun onResponse(call: Call<AgendaRes>, response: Response<AgendaRes>) {
                         if (response.isSuccessful) {
+
                             Toast.makeText(this@AgendamentoEspaco, "Agendamento Criado com sucesso!", Toast.LENGTH_LONG).show()
                             abrirAgendamentos()
+                            Log.i("testReq", agendamento.toString())
                         }else{
-                            Toast.makeText(this@AgendamentoEspaco, response.body().toString(), Toast.LENGTH_LONG).show()
-                            Log.i("avisoResponse", response.body().toString())
+                            Toast.makeText(this@AgendamentoEspaco, response.errorBody().toString(), Toast.LENGTH_LONG).show()
+                            Log.i("avisoResponse", response.errorBody().toString())
                         }
 
                     }

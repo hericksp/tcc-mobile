@@ -11,9 +11,10 @@ object Constants {
     const val DELETAR_AVISO = "/avisos/{id}"
     const val LISTAR_VISIT_SIND_URL = "/visitantes/sindico"
     const val LISTAR_VISIT_MORA_URL = "/visitantes/morador"
-    const val AGENDAMENTO_URL = "/agendamentos"
+    const val AGENDAMENTO_URL = "/agendamento/{id}"
     const val LISTAR_AGENDAMENTOS_URL = "/agendamento/{id}"
     const val CHAT_URL = "http://192.168.18.35:3001"
+    const val PAGAMENTO_URL = "http://192.168.18.35:3333/"
 
 //    const val POSTS_URL = "posts"
 }   

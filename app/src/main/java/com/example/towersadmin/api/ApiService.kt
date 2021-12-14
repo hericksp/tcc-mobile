@@ -52,7 +52,9 @@ interface ApiService {
     fun ListarVisitasMor() : Call<List<Visitas>>
 
     @POST(Constants.AGENDAMENTO_URL)
-    fun novoAgendamento(@Body agendaReq: AgendaReq) : Call<AgendaRes>
+    fun novoAgendamento(
+        @Path ("id") condominio_id: Int,
+        @Body agendaReq: AgendaReq) : Call<AgendaRes>
 
     @GET(Constants.LISTAR_AGENDAMENTOS_URL)
     fun listarAgendamentos(@Path("id") condominio_id:Int) : Call<List<Agendamentos>>
