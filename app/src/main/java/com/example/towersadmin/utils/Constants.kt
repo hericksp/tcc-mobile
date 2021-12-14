@@ -1,7 +1,8 @@
 package com.example.towersadmin.utils
 
 object Constants {
-    const val BASE_URL = "http://192.168.18.35:3333"
+    const val localhost = "192.168.18.35:3333"
+    const val BASE_URL = "http://$localhost"
     const val SINDICO_URL = "/sessionsSindicos"
     const val LOGIN_URL = "/sessionsMoradores"
     const val VISITANTE_MORADOR_URL = "/visitantes/morador/{morador_id}"
@@ -13,8 +14,8 @@ object Constants {
     const val LISTAR_VISIT_MORA_URL = "/visitantes/morador"
     const val AGENDAMENTO_URL = "/agendamento/{id}"
     const val LISTAR_AGENDAMENTOS_URL = "/agendamento/{id}"
-    const val CHAT_URL = "http://192.168.18.35:3001"
-    const val PAGAMENTO_URL = "http://192.168.18.35:3333/"
+    const val CHAT_URL = "http://$localhost"
+    const val PAGAMENTO_URL = "http:/$localhost/"
 
 //    const val POSTS_URL = "posts"
 }   
