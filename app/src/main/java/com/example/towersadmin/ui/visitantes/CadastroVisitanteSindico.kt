@@ -88,10 +88,10 @@ class CadastroVisitanteSindico : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Log.i("visitanteRes", response.toString())
                             Toast.makeText(this@CadastroVisitanteSindico, "Visita agendada com sucesso!", Toast.LENGTH_LONG).show()
-                            abrirDashBoardMorador()
+                            finish()
                         } else {
-                            Toast.makeText(this@CadastroVisitanteSindico, response.body().toString(), Toast.LENGTH_LONG).show()
-
+                            Toast.makeText(this@CadastroVisitanteSindico, response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                            Log.i("visitanteRes", response.errorBody()!!.string())
                         }
 
                     }

@@ -65,7 +65,6 @@ class CadastroVisitanteActivity : AppCompatActivity() {
         rg.addTextChangedListener(Mask.mask("########-#", rg)).toString()
 
 
-
         bnt_cadastrar.setOnClickListener {
 
             val remote = ApiClient().retrofitService()
@@ -89,10 +88,10 @@ class CadastroVisitanteActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Log.i("visitanteRes", response.toString())
                             Toast.makeText(this@CadastroVisitanteActivity, "Visita agendada com sucesso!", Toast.LENGTH_LONG).show()
-                            abrirDashBoardMorador()
+                        finish()
                         } else {
-                            Toast.makeText(this@CadastroVisitanteActivity, response.body().toString(), Toast.LENGTH_LONG).show()
-
+                            Toast.makeText(this@CadastroVisitanteActivity, response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                            Log.i("visitanteRes", response.errorBody()!!.string())
                         }
 
                     }

@@ -1,7 +1,7 @@
 package com.example.towersadmin.utils
 
 object Constants {
-    const val localhost = "192.168.56.1:3333"
+    const val localhost = "192.168.18.35:3333"
     const val BASE_URL = "http://$localhost"
     const val SINDICO_URL = "/sessionsSindicos"
     const val LOGIN_URL = "/sessionsMoradores"

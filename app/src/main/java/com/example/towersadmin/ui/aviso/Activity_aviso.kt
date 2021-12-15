@@ -93,5 +93,6 @@ class activity_aviso : AppCompatActivity() {
     private fun novoAviso(){
         val intent = Intent(this, NovoAviso()::class.java)
         startActivity(intent)
+        finish()
     }
 }

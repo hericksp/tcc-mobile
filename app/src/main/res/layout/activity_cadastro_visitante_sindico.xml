@@ -24,7 +24,7 @@
             android:background="@color/primary"
 
             android:backgroundTint="@color/primary"
-            android:text="Não funciona"
+            android:text="Salvar Visita"
             android:textColor="@color/white"
             app:cornerRadius="18dp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -77,5 +77,6 @@ class Agendamentos : AppCompatActivity() {
     private fun novoAgendamento(){
         val intent = Intent(this, AgendamentoEspaco()::class.java)
         startActivity(intent)
+        finish()
     }
 }

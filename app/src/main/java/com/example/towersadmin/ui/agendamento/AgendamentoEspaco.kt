@@ -49,7 +49,6 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
             if (spinnerEspaco.selectedItemPosition == 0 || dataFinal.text == "Data Selecionada" || horaTermino.text.isEmpty() || horaTermino.text.isEmpty() || nomeResponsavel.text.isEmpty()){
                 Toast.makeText(this, "Verifique todos os campos corretamente!", Toast.LENGTH_LONG).show()
             } else{
-                val condominio_id = dados.getInt("condominio_id", 0)
                 val agendamento = AgendaReq(nomeResponsavel.text.toString(),dataFinal.text.toString(), horaInicio.text.toString(), horaTermino.text.toString(), dados.getInt("condominio_id", 0))
 
                 val remote = ApiClient().retrofitService()
@@ -62,8 +61,8 @@ class AgendamentoEspaco : AppCompatActivity(), CalendarView.OnDateChangeListener
                             abrirAgendamentos()
                             Log.i("testReq", agendamento.toString())
                         }else{
-                            Toast.makeText(this@AgendamentoEspaco, response.errorBody().toString(), Toast.LENGTH_LONG).show()
-                            Log.i("avisoResponse", response.errorBody().toString())
+                            Toast.makeText(this@AgendamentoEspaco, response.errorBody()!!.string(), Toast.LENGTH_LONG).show()
+                            Log.i("avisoResponse", response.errorBody()!!.string())
                         }
 
                     }
